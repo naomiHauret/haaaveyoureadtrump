@@ -104,7 +104,7 @@ export default () => (state, actions) => {
             class={cxs({
               left: 0,
               top: 0,
-              transform: "translate(100%, calc(-100% + -8px))",
+              transform: "translate(calc(100% + 75px), calc(-100% + -8px))",
               opacity: state.donaldMenuVisibleParagraph === "hair" ? 1 : 0,
             })}
           >
