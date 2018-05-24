@@ -1,7 +1,7 @@
 import pageActions from "app/actions/page"
-import donaldMenuActions from "app/actions/donaldMenu"
+import aboutActions from "app/actions/about"
 
 export default {
   ...pageActions,
-  ...donaldMenuActions,
+  ...aboutActions,
 }
