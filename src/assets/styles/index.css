@@ -1,0 +1,59 @@
+@font-face {
+  font-family: "Montserrat";
+  font-path: "./../fonts/Montserrat-Medium";
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MontserratLight";
+  font-path: "./../fonts/Montserrat-Light";
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MontserratBlack";
+  font-path: "./../fonts/Montserrat-Black";
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import-normalize;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 20px;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0 auto;
+  width: 100%;
+  font-size: "1rem";
+}
+
+@keyframes iconScrollMotion {
+  20%,
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 1;
+  }
+}

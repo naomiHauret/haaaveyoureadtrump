@@ -1,0 +1,90 @@
+{
+  "name": "have-you-read-trump",
+  "version": "1.0.0",
+  "description": "A datavizualisation projects about Donald Trump and Twitter. Collab.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run dev",
+    "dev:build": "npx rimraf dist && npx webpack --config webpack.dev.js",
+    "prod:build": "npx rimraf dist && npx webpack --config webpack.prod.js && npx rimraf dist/dist",
+    "dev:wds": "npx webpack-dev-server --open --port 3000 --content-base dist --history-api-fallback --watch-content-base --config webpack.dev.js",
+    "prod:wds": "npx webpack-dev-server --open --compress --port 3004 --content-base dist --history-api-fallback --watch-content-base --config webpack.prod.js",
+    "dev": "npm run dev:build && npm run dev:wds",
+    "prod": "npm run prod:build && npm run prod:wds",
+    "js:prettify": "npx prettier --parser=babylon --write \"src/**/*.{js,jsx}\"",
+    "css:prettify": "npx prettier --parser=css --write \"src/**/*.css\"",
+    "format": "npm run css:prettify && npm run js:prettify",
+    "precommit": "npx lint-staged",
+    "deploy": "npm run prod:build && npx surge --domain haaaveyoureadtrump.surge.sh"
+  },
+  "author": "Naomi Hauret",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "brotli-gzip-webpack-plugin": "^0.5.0",
+    "brotli-webpack-plugin": "^1.0.0",
+    "browserslist": "^3.2.7",
+    "copy-webpack-plugin": "^4.5.1",
+    "css-loader": "^0.28.11",
+    "dotenv-webpack": "^1.5.5",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.11",
+    "glob": "^7.1.2",
+    "glob-all": "^3.1.0",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.1.0",
+    "postcss": "^6.0.22",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-focus-within": "^2.0.0",
+    "postcss-fontpath": "^1.0.0",
+    "postcss-loader": "^2.1.5",
+    "postcss-normalize": "^4.0.0",
+    "purify-css": "^1.2.5",
+    "purifycss-webpack": "^0.7.0",
+    "raw-loader": "^0.5.1",
+    "rimraf": "^2.6.2",
+    "social-tags-webpack-plugin": "0.0.9",
+    "style-loader": "^0.21.0",
+    "surge": "^0.20.1",
+    "svg-inline-loader": "^0.8.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "url-loader": "^1.0.1",
+    "webapp-webpack-plugin": "^2.1.0",
+    "webpack": "^3.11.0",
+    "webpack-cli": "^2.0.15",
+    "webpack-dev-server": "^2.9.7",
+    "webpack-merge": "^4.1.2"
+  },
+  "dependencies": {
+    "@hyperapp/router": "^0.7.0",
+    "@hyperapp/transitions": "^1.0.2",
+    "animejs": "^2.2.0",
+    "chart.js": "^2.7.2",
+    "cxs": "^6.2.0",
+    "design-system-utils": "^0.12.1",
+    "hyperapp": "^1.2.5",
+    "lottie-web": "^5.1.14"
+  },
+  "browserslist": [
+    "> 1%",
+    "not ie <=11",
+    "not ie_mob <=11",
+    "not bb <=10",
+    "not op_mob <= 37",
+    "not samsung <= 7",
+    "not op_mini all"
+  ],
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "npx prettier --parser=babylon --write \"src/**/*.js\""
+    ],
+    "src/**/*.css": [
+      "npx prettier --parser=css --write \"src/**/*.css\"",
+      "git add"
+    ]
+  }
+}
