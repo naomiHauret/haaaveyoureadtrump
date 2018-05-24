@@ -57,7 +57,7 @@ export default () => (state, actions) => {
                 transform: "translate(125%, 125%)",
               },
               "@media (min-width: 1199px)": {
-                transform: "translate(calc(100% + 75px), -226%)",
+                transform: state.donaldMenuVisibleParagraph === "eyes" ? "translate(calc(100% + 75px), -226%)" : "translate(calc(100% + 50px), -220%)",
               },
             })}
           >
@@ -73,7 +73,7 @@ export default () => (state, actions) => {
                 transform: "translate(172%, -25%)",
               },
               "@media (min-width: 1199px)": {
-                transform: "translate(calc(100% + 75px), -15px)",
+                transform: state.donaldMenuVisibleParagraph === "tie" ? "translate(calc(100% + 75px), -15px)" : "translate(calc(100% + 50px), 5px)" ,
               },
             })}
           >
@@ -84,7 +84,7 @@ export default () => (state, actions) => {
             class={cxs({
               left: 0,
               bottom: 0,
-              transform: "translate(calc(-50%  + -30px), calc(100% + 40px))",
+              transform: state.donaldMenuVisibleParagraph === "mouth" ? "translate(calc(-50%  + -30px), calc(100% + 40px))" : "translate(calc(-50%  + -10px), calc(100% + 20px))",
               opacity: state.donaldMenuVisibleParagraph === "mouth" ? 1 : 0,
             })}
           >
@@ -94,7 +94,7 @@ export default () => (state, actions) => {
             class={cxs({
               left: 0,
               top: 0,
-              transform: "translate(-100%, calc(100% + 40px))",
+              transform: state.donaldMenuVisibleParagraph === "cheeks" ? "translate(-100%, calc(100% + 40px))" : "translate(calc(-100% + 20px), calc(100% + 20px))",
               opacity: state.donaldMenuVisibleParagraph === "cheeks" ? 1 : 0,
             })}
           >
@@ -104,7 +104,7 @@ export default () => (state, actions) => {
             class={cxs({
               left: 0,
               top: 0,
-              transform: "translate(calc(100% + 75px), calc(-100% + -8px))",
+              transform: state.donaldMenuVisibleParagraph ===  "hair" ? "translate(calc(100% + 75px), calc(-100% + -8px))" : "translate(calc(100% + 95px), calc(-100% + 8px))" ,
               opacity: state.donaldMenuVisibleParagraph === "hair" ? 1 : 0,
             })}
           >
