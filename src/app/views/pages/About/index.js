@@ -5,13 +5,12 @@ import Trump from "app/views/components/Trump"
 import ScrollIcon from "app/views/components/ScrollIcon"
 import { ds } from "assets/styles/theme"
 import cxs from "cxs"
-import { aboutPageName, aboutMetaTitle } from "app/routes"
+import { aboutMetaTitle } from "app/routes"
 
 const baseFontSize = ds.get("typo.sizes.base")
 
 export default () => (state, actions) => {
   const metaTitle = aboutMetaTitle
-  const pageName = aboutPageName
   const key = "kabout"
 
   return (

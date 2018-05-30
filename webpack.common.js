@@ -24,6 +24,15 @@ module.exports = {
 				exclude: exludedFolders,
 				use: "babel-loader",
 			},
+			{
+				test: /\.csv$/,
+				loader: 'csv-loader',
+				options: {
+					dynamicTyping: true,
+					header: true,
+					skipEmptyLines: true
+				}
+			},
 			// CSS
 			{
 				test: /assets(\/|\\).*\.css$/,
@@ -95,12 +104,12 @@ module.exports = {
 			allChunks: true,
 		}),
 		new SocialTagsPlugin({
-			appUrl: "",
+			appUrl: "http://haaaveyoureadtrump.surge.sh",
 			facebook: {
-				"og:url": "",
+				"og:url": "http://haaaveyoureadtrump.surge.sh",
 				"og:type": "website",
 				"og:title": "Have you read Trump ?",
-				// 'og:image': path.resolve('src/img/book.png'),
+				'og:image': path.resolve('src/assets/images/social/preview.jpg'),
 				"og:description": "",
 				"og:site_name": "Have you read Trump?",
 				"og:locale": "en_US",
@@ -109,11 +118,11 @@ module.exports = {
 			twitter: {
 				"twitter:card": "summary_large_image",
 				"twitter:creator": "@naomiHauret",
-				"twitter:url": "",
+				"twitter:url": "http://haaaveyoureadtrump.surge.sh",
 				"twitter:title": "Have you read Trump ?",
 				"twitter:description":
 					"Have you read Trump ?",
-				// "twitter:image": path.resolve('src/img/book.png')
+				"twitter:image": path.resolve('src/assets/images/social/preview.jpg'),
 			},
 		}),
 		new webpack.IgnorePlugin(/caniuse-lite\/data\/regions/),

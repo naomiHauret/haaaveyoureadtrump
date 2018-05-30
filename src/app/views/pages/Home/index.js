@@ -7,13 +7,12 @@ import ScrollIcon from "app/views/components/ScrollIcon"
 import { Enter, Exit } from "@hyperapp/transitions"
 import anime from "animejs"
 
-import { homePageName, homeMetaTitle } from "app/routes"
+import { homeMetaTitle } from "app/routes"
 
 const baseFontSize = ds.get("typo.sizes.base")
 
 export default () => (state, actions) => {
   const metaTitle = homeMetaTitle
-  const pageName = homePageName
   const key = "khome"
 
   return (
@@ -33,7 +32,7 @@ export default () => (state, actions) => {
         oncreate={actions.showHomeTextTriggered}
       >
         <Heading brand="light" level={1} margin={`0 0 ${ds.pxTo(40, baseFontSize, "rem")}`}>
-          {pageName}
+          Haaave you<br/> read Trump ?
         </Heading>
         <Heading brand="light" level={2} margin="0">
           A deep analysis of the USA President’s tweets
@@ -57,11 +56,10 @@ export default () => (state, actions) => {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 46.5 37.8"
           >
-            {" "}
             <path
               d="M0 33.4c4.2 2.7 9.1 4.2 14.4 4.2 17.3 0 26.7-14.3 26.7-26.7V9.7c1.8-1.3 3.4-3 4.7-4.9-1.7.7-3.5 1.2-5.4 1.5 1.9-1.2 3.4-3 4.1-5.2-1.8 1.1-3.8 1.9-6 2.3-1.7-1.8-4.2-3-6.8-3-5.2 0-9.4 4.2-9.4 9.4 0 .7.1 1.4.2 2.1-7.8-.4-14.7-4.1-19.3-9.8-.8 1.4-1.3 3-1.3 4.7 0 3.3 1.7 6.1 4.2 7.8-1.5 0-3-.5-4.3-1.2v.1c0 4.5 3.2 8.3 7.5 9.2-.8.2-1.6.3-2.5.3-.6 0-1.2-.1-1.8-.2 1.2 3.7 4.7 6.4 8.8 6.5-3.2 2.5-7.3 4-11.7 4-.6.2-1.4.1-2.1.1z"
               fill="currentColor"
-            />{" "}
+            />
           </svg>
         </div>
 
