@@ -32,7 +32,7 @@ export default () => (state, actions) => {
         oncreate={actions.showHomeTextTriggered}
       >
         <Heading brand="light" level={1} margin={`0 0 ${ds.pxTo(40, baseFontSize, "rem")}`}>
-          Haaave you<br/> read Trump ?
+          Haaave you<br /> read Trump ?
         </Heading>
         <Heading brand="light" level={2} margin="0">
           A deep analysis of the USA President’s tweets

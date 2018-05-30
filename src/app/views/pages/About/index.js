@@ -32,10 +32,10 @@ export default () => (state, actions) => {
         <div
           class={cxs({
             position: "relative",
-            width: `${6 / 12 * 100}%`,
+            width: `${(6 / 12) * 100}%`,
 
             "@media (min-width: 1199px)": {
-              width: `${4 / 12 * 100}%`,
+              width: `${(4 / 12) * 100}%`,
             },
             "> p": {
               position: "absolute",
@@ -55,7 +55,10 @@ export default () => (state, actions) => {
                 transform: "translate(125%, 125%)",
               },
               "@media (min-width: 1199px)": {
-                transform: state.aboutVisibleParagraph === "eyes" ? "translate(calc(100% + 75px), -226%)" : "translate(calc(100% + 50px), -220%)",
+                transform:
+                  state.aboutVisibleParagraph === "eyes"
+                    ? "translate(calc(100% + 75px), -226%)"
+                    : "translate(calc(100% + 50px), -220%)",
               },
             })}
           >
@@ -71,7 +74,10 @@ export default () => (state, actions) => {
                 transform: "translate(172%, -25%)",
               },
               "@media (min-width: 1199px)": {
-                transform: state.aboutVisibleParagraph === "tie" ? "translate(calc(100% + 75px), -15px)" : "translate(calc(100% + 50px), 5px)" ,
+                transform:
+                  state.aboutVisibleParagraph === "tie"
+                    ? "translate(calc(100% + 75px), -15px)"
+                    : "translate(calc(100% + 50px), 5px)",
               },
             })}
           >
@@ -82,7 +88,10 @@ export default () => (state, actions) => {
             class={cxs({
               left: 0,
               bottom: 0,
-              transform: state.aboutVisibleParagraph === "mouth" ? "translate(calc(-50%  + -30px), calc(100% + 40px))" : "translate(calc(-50%  + -10px), calc(100% + 20px))",
+              transform:
+                state.aboutVisibleParagraph === "mouth"
+                  ? "translate(calc(-50%  + -30px), calc(100% + 40px))"
+                  : "translate(calc(-50%  + -10px), calc(100% + 20px))",
               opacity: state.aboutVisibleParagraph === "mouth" ? 1 : 0,
             })}
           >
@@ -92,7 +101,10 @@ export default () => (state, actions) => {
             class={cxs({
               left: 0,
               top: 0,
-              transform: state.aboutVisibleParagraph === "cheeks" ? "translate(-100%, calc(100% + 40px))" : "translate(calc(-100% + 20px), calc(100% + 20px))",
+              transform:
+                state.aboutVisibleParagraph === "cheeks"
+                  ? "translate(-100%, calc(100% + 40px))"
+                  : "translate(calc(-100% + 20px), calc(100% + 20px))",
               opacity: state.aboutVisibleParagraph === "cheeks" ? 1 : 0,
             })}
           >
@@ -102,7 +114,10 @@ export default () => (state, actions) => {
             class={cxs({
               left: 0,
               top: 0,
-              transform: state.aboutVisibleParagraph ===  "hair" ? "translate(calc(100% + 75px), calc(-100% + -8px))" : "translate(calc(100% + 95px), calc(-100% + 8px))" ,
+              transform:
+                state.aboutVisibleParagraph === "hair"
+                  ? "translate(calc(100% + 75px), calc(-100% + -8px))"
+                  : "translate(calc(100% + 95px), calc(-100% + 8px))",
               opacity: state.aboutVisibleParagraph === "hair" ? 1 : 0,
             })}
           >
