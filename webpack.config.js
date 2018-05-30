@@ -6,7 +6,6 @@ const HtmlPlugin = require("html-webpack-plugin")
 const SocialTagsPlugin = require('social-tags-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const PurgeCssPlugin = require("purgecss-webpack-plugin")
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const WebappPlugin = require("webapp-webpack-plugin")
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 const ImageminPlugin = require("imagemin-webpack-plugin").default
@@ -82,15 +81,17 @@ process.env.NODE_ENV === 'production'
                 },
             },
         }),
-        new PurgeCssPlugin({
-            paths: glob.sync([
-                path.join(__dirname, './src/**/*.html'),
-                path.join(
-                    __dirname,
-                    './src/**/*.js',
-                ),
-            ]),
-        }),
+        
+        // new PurgeCssPlugin({
+        //     paths: glob.sync([
+        //         path.join(__dirname, './src/**/*.html'),
+        //         path.join(
+        //             __dirname,
+        //             './src/**/*.js',
+        //         ),
+        //     ]),
+        // }), // not @font-face friendly
+
         new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
         new CompressionPlugin({
             algorithm: 'gzip',
@@ -108,148 +109,137 @@ process.env.NODE_ENV === 'production'
 
 
 module.exports = {
-    entry: {
-        vendors: ["hyperapp", "@hyperapp/router",],
-        client: "./src/index.js"
+  entry: {
+    vendors: ["hyperapp", "@hyperapp/router"],
+    client: "./src/index.js",
+  },
+  output: {
+    filename: "assets/scripts/[name].[hash].js",
+    path: path.resolve(__dirname, "dist"),
+  },
+  resolve: {
+    modules: [path.resolve("./src"), path.resolve("./node_modules")],
+  },
+  mode: process.env.NODE_ENV === "production" ? "production" : "development",
+  devtool: process.env.NODE_ENV === "production" ? false : "eval-source-map",
+  optimization: {
+    splitChunks: {
+      chunks: "all",
     },
-    output: {
-        filename: "assets/scripts/[name].[hash].js",
-        path: path.resolve(__dirname, "dist"),
-    },
-    resolve: {
-        modules: [path.resolve("./src"), path.resolve("./node_modules")],
-    },
-    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
-    devtool: process.env.NODE_ENV === 'production' ? false : 'eval-source-map',
-    optimization: {
-        splitChunks: {
-            chunks: "all"
+    minimizer: [
+      new UglifyJsPlugin({
+        uglifyOptions: {
+          ecma: 8,
+          warnings: false,
+          compress: {
+            warnings: false,
+            conditionals: true,
+            unused: true,
+            comparisons: true,
+            sequences: true,
+            dead_code: true,
+            evaluate: true,
+            if_return: true,
+            join_vars: true,
+            drop_console: true,
+            drop_debugger: true,
+          },
+          output: {
+            comments: false,
+            beautify: false,
+          },
+          sourceMap: false,
+          pure_funcs: ["console.log"],
+          toplevel: false,
+          nameCache: null,
+          ie8: false,
+          keep_classnames: undefined,
+          keep_fnames: false,
+          safari10: false,
         },
-        minimizer: [
-            new UglifyJsPlugin({
-                uglifyOptions: {
-                    ecma: 8,
-                    warnings: false,
-                    compress: {
-                        warnings: false,
-                        conditionals: true,
-                        unused: true,
-                        comparisons: true,
-                        sequences: true,
-                        dead_code: true,
-                        evaluate: true,
-                        if_return: true,
-                        join_vars: true,
-                        drop_console: true,
-                        drop_debugger: true,
-                    },
-                    output: {
-                        comments: false,
-                        beautify: false,
-                    },
-                    sourceMap: false,
-                    pure_funcs: ['console.log'],
-                    toplevel: false,
-                    nameCache: null,
-                    ie8: false,
-                    keep_classnames: undefined,
-                    keep_fnames: false,
-                    safari10: false,
-                },
-            }),
-            new OptimizeCssAssetsPlugin({
-                cssProcessor: require('cssnano')({
-                    preset: [
-                        'default',
-                        {
-                            discardComments: {
-                                removeAll: true,
-                            },
-                        },
-                    ],
-                }),
-            }),
+      }),
+    ],
+  },
+  module: {
+    rules: [
+      // JS
+      {
+        test: /\.js$/,
+        exclude: exludedFolders,
+        use: "babel-loader",
+      },
+      {
+        test: /\.csv$/,
+        loader: "csv-loader",
+        options: {
+          dynamicTyping: true,
+          header: true,
+          skipEmptyLines: true,
+        },
+      },
+      // CSS
+      {
+        test: /assets(\/|\\).*\.css$/,
+        exclude: exludedFolders,
+          use: [MiniCssExtractPlugin.loader, {
+              loader: "css-loader",
+              options: {
+                  minimize: process.env.NODE_ENV === "production" ? true : false,
+              },
+          }, "postcss-loader"],
+      },
+      // SVG
+      {
+        test: /images(\/|\\).*\.svg$/,
+        exclude: exludedFolders,
+        use: [
+          {
+            loader: "raw-loader",
+            options: {
+              name: "assets/images/[name].[ext]",
+            },
+          },
         ],
-    },
-    module: {
-        rules: [
-            // JS
-            {
-                test: /\.js$/,
-                exclude: exludedFolders,
-                use: "babel-loader",
+      },
+      // Images
+      {
+        test: /\.(png|jpg|jpeg|gif)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "assets/images/[name].[ext]",
             },
-            {
-                test: /\.csv$/,
-                loader: 'csv-loader',
-                options: {
-                    dynamicTyping: true,
-                    header: true,
-                    skipEmptyLines: true
-                }
-            },
-            // CSS
-            {
-                test: /assets(\/|\\).*\.css$/,
-                exclude: exludedFolders,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                    'postcss-loader',
-                ]
-            },
-            // SVG
-            {
-                test: /images(\/|\\).*\.svg$/,
-                exclude: exludedFolders,
-                use: [
-                    {
-                        loader: "raw-loader",
-                        options: {
-                            name: "assets/images/[name].[ext]",
-                        },
-                    },
-                ],
-            },
-            // Images
-            {
-                test: /\.(png|jpg|jpeg|gif)$/,
-                use: [
-                    {
-                        loader: "file-loader",
-                        options: {
-                            name: "assets/images/[name].[ext]",
-                        },
-                    },
-                ],
-            },
-            // Music
-            {
-                test: /\.(mp3|wav|ogg|flac)$/,
-                use: [
-                    {
-                        loader: "file-loader",
-                        options: {
-                            name: "assets/music/[name].[ext]",
-                        },
-                    },
-                ],
-            },
-            // Fonts
-            {
-                test: /\.(ttf|eot|woff|woff2)$/,
-                use: [
-                    {
-                        loader: "file-loader",
-                        options: {
-                            publicPath: "./../fonts/",
-                            outputPath: "assets/fonts/",
-                            name: "[name].[ext]",
-                        },
-                    },
-                ],
-            },
+          },
         ],
-    },
-    plugins,
+      },
+      // Music
+      {
+        test: /\.(mp3|wav|ogg|flac)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "assets/music/[name].[ext]",
+            },
+          },
+        ],
+      },
+      // Fonts
+      {
+        test: /\.(ttf|eot|woff|woff2)$/,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              publicPath: "./../fonts/",
+              outputPath: "assets/fonts/",
+              name: "[name].[ext]",
+            },
+          },
+        ],
+      },
+    ],
+  },
+  plugins,
 }
