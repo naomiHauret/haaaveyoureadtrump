@@ -1,7 +1,17 @@
-# Have you read Trump ?
+<p align="center"> 
+<img src="https://i.imgur.com/gI673AI.gif" alt="" />
+</p>
+<p align="center"> 
+<img src="https://i.imgur.com/g9MphAU.png" alt="Haaave you read Trump ?">
+</p>
 
-A cross-section datavisualisation projects with UX & Webdesign students from ECV Digital Nantes about Donald Trump's tweets.
+---
 
+A cross-section datavisualisation project with UX & Webdesign students from ECV Digital Nantes about Donald Trump's tweets.
+
+Alive at [haaaveyoureadtrump.surge.sh](http://haaaveyoureadtrump.surge.sh)
+
+---
 ## Pre-requisites
 
 * Have`npm` installed on your machine
@@ -24,3 +34,5 @@ A new tab should be open in your browser. `localhost:3000` is alive ! Have fun.
 - router and hyperapp-transitions
 - Style: CSS-in-JS powered by CXS, some PostCSS
 - Animations: lottie/bodymovin, AnimeJS
+- Offline glory: Webpack 
+- Online glory: Surge
