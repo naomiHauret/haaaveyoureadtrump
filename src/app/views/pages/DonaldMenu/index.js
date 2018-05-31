@@ -4,6 +4,7 @@ import Heading from "app/views/components/Heading"
 import cxs from "cxs"
 import { ds } from "assets/styles/theme"
 import { donaldMenuMetaTitle } from "app/routes"
+import Burger from "app/views/components/Burger"
 
 const baseFontSize = ds.get("typo.sizes.base")
 
@@ -53,7 +54,9 @@ export default () => (state, actions) => {
               marginLeft: `${(2 / 12) * 100}%`,
               width: `${(3 / 12) * 100}%`,
             })}
-          />
+          >
+            <Burger />
+          </div>
         </div>
       </div>
     </Page>

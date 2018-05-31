@@ -181,12 +181,16 @@ module.exports = {
       {
         test: /assets(\/|\\).*\.css$/,
         exclude: exludedFolders,
-          use: [MiniCssExtractPlugin.loader, {
-              loader: "css-loader",
-              options: {
-                  minimize: process.env.NODE_ENV === "production" ? true : false,
-              },
-          }, "postcss-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: "css-loader",
+            options: {
+              minimize: process.env.NODE_ENV === "production" ? true : false,
+            },
+          },
+          "postcss-loader",
+        ],
       },
       // SVG
       {
@@ -194,7 +198,7 @@ module.exports = {
         exclude: exludedFolders,
         use: [
           {
-            loader: "raw-loader",
+            loader: "file-loader",
             options: {
               name: "assets/images/[name].[ext]",
             },
