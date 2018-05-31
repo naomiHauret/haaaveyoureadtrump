@@ -27,7 +27,7 @@
 
 html {
   font-size: 20px;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 body {
@@ -55,5 +55,15 @@ body {
 
   40% {
     opacity: 1;
+  }
+}
+
+@keyframes shakeBurgerSlice {
+  from {
+    transform: rotate(-3deg);
+  }
+
+  to {
+    transform: rotate(5deg);
   }
 }

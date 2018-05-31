@@ -4,4 +4,6 @@ export default {
   location: location.state,
   showHomeText: false,
   donaldMenuVisibleParagraph: null,
+  unfoldBurger: false,
+  currentBurger: [],
 }

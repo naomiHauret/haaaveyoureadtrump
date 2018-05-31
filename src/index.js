@@ -12,5 +12,3 @@ const enhancedActions = Object.assign({}, { location: location.actions }, action
 const view = (state, actions) => <App state={state} actions={actions} />
 const main = app(state, enhancedActions, view, document.body)
 const unsubscribe = location.subscribe(main.location)
-
-console.log(Object.getOwnPropertyNames(data[0]))

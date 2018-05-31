@@ -15,7 +15,8 @@
     "css:prettify": "npx prettier --parser=css --write \"src/**/*.css\"",
     "format": "npm run css:prettify && npm run js:prettify",
     "precommit": "npx lint-staged",
-    "deploy": "npm run prod:build && npx surge --domain haaaveyoureadtrump.surge.sh"
+    "deploy": "npm run prod:build && npx surge --domain haaaveyoureadtrump.surge.sh",
+    "prod:deploy": "npx surge --domain haaaveyoureadtrump.surge.sh"
   },
   "author": "Naomi Hauret",
   "license": "MIT",
