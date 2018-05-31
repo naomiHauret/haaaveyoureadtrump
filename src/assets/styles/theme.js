@@ -21,7 +21,7 @@ const colorPalette = {
   americanRed: "#f0362d",
   americanLightRed: "#f3726c",
   americanBlack: "#212121",
-  americanLightGrey: "#e5e5e5",
+  americanLightGrey: "#f9f9f9",
   americanWhite: "#ffffff",
 }
 
