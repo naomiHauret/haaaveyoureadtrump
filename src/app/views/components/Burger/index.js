@@ -15,7 +15,10 @@ import steak from "assets/images/content/burger/steak.svg"
 import tomates from "assets/images/content/burger/tomates.svg"
 import Slice from "app/views/components/Burger/Slice"
 
-export default ({ state, actions, isSelectSliceView, isCustom }) => {
+export default (props) => {
+    const {
+      unfoldBurger, currentBurger, actions, isSelectSliceView, isCustom
+    } = props
   const PRESIDENTIAL_ELECTIONS = {
     sliceWrapperStyle: cxs({
       transform: "translateX(50%)",
@@ -24,7 +27,7 @@ export default ({ state, actions, isSelectSliceView, isCustom }) => {
         transform:
           isSelectSliceView === true
             ? "translate(-100%, -20%) rotate(5deg)"
-            : state.unfoldBurger === false
+            : unfoldBurger === false
               ? "rotate(0)"
               : "rotate(5deg)",
       },
@@ -42,7 +45,7 @@ export default ({ state, actions, isSelectSliceView, isCustom }) => {
       zIndex: 15,
       marginTop: "-15px",
       "> img": {
-        transform: state.unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-5deg)",
+        transform: unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-5deg)",
       },
     }),
     sliceTextStyle: cxs({
@@ -73,7 +76,7 @@ export default ({ state, actions, isSelectSliceView, isCustom }) => {
       marginTop: "-42px",
       zIndex: 9,
       "> img": {
-        transform: state.unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(5deg)",
+        transform: unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(5deg)",
       },
     }),
     sliceTextStyle: cxs({
@@ -90,7 +93,7 @@ export default ({ state, actions, isSelectSliceView, isCustom }) => {
       marginTop: "-45px",
       zIndex: 8,
       "> img": {
-        transform: state.unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-2deg)",
+        transform: unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-2deg)",
       },
     }),
     sliceTextStyle: cxs({
@@ -120,7 +123,7 @@ export default ({ state, actions, isSelectSliceView, isCustom }) => {
       marginTop: "-60px",
       zIndex: 6,
       "> img": {
-        transform: state.unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-1deg)",
+        transform: unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-1deg)",
       },
     }),
     sliceTextStyle: cxs({
@@ -137,7 +140,7 @@ export default ({ state, actions, isSelectSliceView, isCustom }) => {
       zIndex: 5,
       transform: "translateX(4.5%)",
       "> img": {
-        transform: state.unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(3deg)",
+        transform: unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(3deg)",
       },
     }),
     sliceTextStyle: cxs({
@@ -153,7 +156,7 @@ export default ({ state, actions, isSelectSliceView, isCustom }) => {
       marginTop: "-65px",
       zIndex: 4,
       "> img": {
-        transform: state.unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-2deg)",
+        transform: unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-2deg)",
       },
     }),
     sliceTextStyle: cxs({
@@ -170,7 +173,7 @@ export default ({ state, actions, isSelectSliceView, isCustom }) => {
       zIndex: 3,
       transform: "translateX(0.5%)",
       "> img": {
-        transform: state.unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(4deg)",
+        transform: unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(4deg)",
       },
     }),
     sliceTextStyle: cxs({
@@ -187,7 +190,7 @@ export default ({ state, actions, isSelectSliceView, isCustom }) => {
       zIndex: 2,
       transform: "translateX(9.5%)",
       "> img": {
-        transform: state.unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-1deg)",
+        transform: unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-1deg)",
       },
     }),
     sliceTextStyle: cxs({
@@ -207,7 +210,7 @@ export default ({ state, actions, isSelectSliceView, isCustom }) => {
     sliceTextStyle: cxs({
       transform: "translate(98.5%, -50%)",
       "> img": {
-        transform: state.unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-2deg)",
+        transform: unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-2deg)",
       },
     }),
     name: "World News",
@@ -220,7 +223,7 @@ export default ({ state, actions, isSelectSliceView, isCustom }) => {
       marginTop: "-75px",
       zIndex: 0,
       "> img": {
-        transform: state.unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-4deg)",
+        transform: unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-4deg)",
       },
     }),
     sliceTextStyle: cxs({ transform: "translate(102.5%, -50%)" }),
@@ -247,7 +250,7 @@ export default ({ state, actions, isSelectSliceView, isCustom }) => {
   let slicesNames = slices.map((slice) => slice.name)
   if (isCustom === true) {
     let actualSlicesIndex = slicesNames.map((slice) => {
-      if (state.currentBurger.indexOf(slice) > -1) return slicesNames.indexOf(slice)
+      if (currentBurger.indexOf(slice) > -1) return slicesNames.indexOf(slice)
     })
     slices = slices.filter((slice, index) => actualSlicesIndex.indexOf(index) > -1 && slice)
   }
@@ -290,8 +293,9 @@ export default ({ state, actions, isSelectSliceView, isCustom }) => {
           },
           "> img": {
             transition: "250ms ease-in-out all",
+            opacity: isSelectSliceView === true ? 0.5 : 1,
             ":hover": {
-              opacity: 1,
+              opacity: isSelectSliceView === true ? 0.75 : 1,
               cursor: "pointer",
               animation:
                 isSelectSliceView === false ? "shakeBurgerSlice 1550ms ease-in-out infinite alternate" : "none",
@@ -313,8 +317,7 @@ export default ({ state, actions, isSelectSliceView, isCustom }) => {
           name={slice.name}
           data={slice.data}
           isSelectSliceView={isSelectSliceView}
-          actions={actions}
-          state={state}
+          toggleSlice={actions.toggleSlice}
         />
       ))}
     </div>

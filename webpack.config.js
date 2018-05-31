@@ -81,17 +81,16 @@ process.env.NODE_ENV === 'production'
                 },
             },
         }),
-        
-        // new PurgeCssPlugin({
-        //     paths: glob.sync([
-        //         path.join(__dirname, './src/**/*.html'),
-        //         path.join(
-        //             __dirname,
-        //             './src/**/*.js',
-        //         ),
-        //     ]),
-        // }), // not @font-face friendly
-
+        Social,
+        new PurgeCssPlugin({
+            paths: glob.sync([
+                path.join(__dirname, './src/**/*.html'),
+                path.join(
+                    __dirname,
+                    './src/**/*.js',
+                ),
+            ]),
+        }),
         new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }),
         new CompressionPlugin({
             algorithm: 'gzip',
@@ -105,6 +104,7 @@ process.env.NODE_ENV === 'production'
             template: "./src/index.html",
             filename: "index.html",
         }),
+       Social,
     )
 
 
