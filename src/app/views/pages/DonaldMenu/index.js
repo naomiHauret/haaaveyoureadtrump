@@ -22,13 +22,14 @@ export default () => (state, actions) => {
           justifyContent: "center",
         })}
       >
-        <Heading level={1} brand="dark">
+        <Heading level={1} brand="dark" margin={`0 0 ${ds.pxTo(100, baseFontSize, "rem")} 0`}>
           The<br />Donald's menu
         </Heading>
         <div
           class={cxs({
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: "flex-start",
+            alignItems: "center",
           })}
         >
           <div
@@ -51,8 +52,8 @@ export default () => (state, actions) => {
           </div>
           <div
             class={cxs({
-              marginLeft: `${(2 / 12) * 100}%`,
-              width: `${(3 / 12) * 100}%`,
+              marginLeft: `${(3 / 12) * 100}%`,
+              width: `${(4 / 12) * 100}%`,
             })}
           >
             <Burger />

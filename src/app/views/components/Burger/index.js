@@ -34,6 +34,7 @@ export default () => (
       class={cxs({
         textAlign: "center",
         transform: "translateX(10%)",
+        marginBottom: "-20px",
       })}
     >
       <img src={drapeau} />
