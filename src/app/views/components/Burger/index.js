@@ -17,6 +17,7 @@ import tomates from "assets/images/content/burger/tomates.svg"
 export default () => (
   <div
     class={cxs({
+      textAlign: "center",
       "> div": {
         transition: "all 750ms ease-in-out",
         position: "relative",
@@ -32,14 +33,14 @@ export default () => (
     <div
       class={cxs({
         textAlign: "center",
-        transform: "rotate(-3deg) translateX(-5%)",
+        transform: "translateX(10%)",
       })}
     >
       <img src={drapeau} />
     </div>
     <div
       class={cxs({
-        zIndex: 6,
+        zIndex: 15,
         marginTop: "-15px",
       })}
     >
@@ -48,8 +49,7 @@ export default () => (
     <div
       class={cxs({
         marginTop: "-30px",
-        transform: "translateX(8.5%)",
-        zIndex: 4,
+        zIndex: 10,
       })}
     >
       <img src={tomates} />
@@ -57,8 +57,7 @@ export default () => (
     <div
       class={cxs({
         marginTop: "-90px",
-        transform: "translateX(5%)",
-        zIndex: 5,
+        zIndex: 11,
       })}
     >
       <img src={salade} />
@@ -66,8 +65,7 @@ export default () => (
     <div
       class={cxs({
         marginTop: "-40px",
-        transform: "translateX(5%)",
-        zIndex: 3,
+        zIndex: 9,
       })}
     >
       <img src={oignons} />
@@ -75,8 +73,7 @@ export default () => (
     <div
       class={cxs({
         marginTop: "-45px",
-        zIndex: 2,
-        transform: "translateX(2.5%)",
+        zIndex: 8,
       })}
     >
       <img src={bacon} />
@@ -84,8 +81,7 @@ export default () => (
     <div
       class={cxs({
         marginTop: "-45px",
-        transform: "translateX(6%)",
-        zIndex: 2,
+        zIndex: 8,
       })}
     >
       <img src={mayonnaise} />
@@ -93,8 +89,7 @@ export default () => (
     <div
       class={cxs({
         marginTop: "-50px",
-        zIndex: 1,
-        transform: "translateX(2.5%)",
+        zIndex: 7,
       })}
     >
       <img src={ketchup} />
@@ -102,26 +97,60 @@ export default () => (
     <div
       class={cxs({
         marginTop: "-60px",
+        zIndex: 6,
       })}
     >
       <img src={steak} />
     </div>
-    <div>
+    <div
+      class={cxs({
+        marginTop: "-45px",
+        zIndex: 5,
+      })}
+    >
       <img src={cheddar} />
     </div>
-    <div>
+    <div
+      class={cxs({
+        marginTop: "-65px",
+        zIndex: 4,
+      })}
+    >
       <img src={galette} />
     </div>
-    <div>
+    <div
+      class={cxs({
+        marginTop: "-45px",
+        zIndex: 3,
+        transform: "translateX(0.5%)",
+      })}
+    >
       <img src={steak} />
     </div>
-    <div>
+    <div
+      class={cxs({
+        marginTop: "-28px",
+        zIndex: 2,
+        transform: "translateX(4.5%)",
+      })}
+    >
       <img src={tomates} />
     </div>
-    <div>
+    <div
+      class={cxs({
+        transform: "translateX(-3.5%)",
+        marginTop: "-70px",
+        zIndex: 1,
+      })}
+    >
       <img src={salade} />
     </div>
-    <div>
+    <div
+      class={cxs({
+        marginTop: "-75px",
+        zIndex: 0,
+      })}
+    >
       <img src={painBottom} />
     </div>
   </div>
