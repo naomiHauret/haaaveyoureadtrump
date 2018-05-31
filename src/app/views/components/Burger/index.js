@@ -16,9 +16,7 @@ import tomates from "assets/images/content/burger/tomates.svg"
 import Slice from "app/views/components/Burger/Slice"
 
 export default (props) => {
-    const {
-      unfoldBurger, currentBurger, actions, isSelectSliceView, isCustom
-    } = props
+  const { unfoldBurger, currentBurger, actions, isSelectSliceView, isCustom } = props
   const PRESIDENTIAL_ELECTIONS = {
     sliceWrapperStyle: cxs({
       transform: "translateX(50%)",

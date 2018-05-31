@@ -27,7 +27,13 @@ export default () => (state, actions) => {
             })}
           >
             {state.currentBurger.length > 0 && (
-              <Burger isSelectSliceView={true} isCustom={false} actions={actions} unfoldBurger={state.unfoldBurger} currentBurger={state.currentBurger} />
+              <Burger
+                isSelectSliceView={true}
+                isCustom={false}
+                actions={actions}
+                unfoldBurger={state.unfoldBurger}
+                currentBurger={state.currentBurger}
+              />
             )}
             {state.currentBurger.length === 0 && (
               <p>
@@ -57,10 +63,24 @@ export default () => (state, actions) => {
               })}
             >
               {state.currentBurger.length > 0 && (
-                <Burger unfoldBurger={state.unfoldBurger} currentBurger={state.currentBurger} isSelectSliceView={false} isCustom={true} actions={actions} state={state} />
+                <Burger
+                  unfoldBurger={state.unfoldBurger}
+                  currentBurger={state.currentBurger}
+                  isSelectSliceView={false}
+                  isCustom={true}
+                  actions={actions}
+                  state={state}
+                />
               )}
               {state.currentBurger.length === 0 && (
-                <Burger unfoldBurger={state.unfoldBurger} currentBurger={state.currentBurger} isSelectSliceView={false} isCustom={false} actions={actions} state={state} />
+                <Burger
+                  unfoldBurger={state.unfoldBurger}
+                  currentBurger={state.currentBurger}
+                  isSelectSliceView={false}
+                  isCustom={false}
+                  actions={actions}
+                  state={state}
+                />
               )}
             </div>
           </div>

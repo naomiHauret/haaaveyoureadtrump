@@ -13,26 +13,27 @@ const CompressionPlugin = require("brotli-webpack-plugin")
 const exludedFolders = [path.join(__dirname, "node_modules")]
 
 const Social = new SocialTagsPlugin({
-    appUrl: "http://haaaveyoureadtrump.surge.sh",
-    facebook: {
-        "og:url": "http://haaaveyoureadtrump.surge.sh",
-        "og:type": "website",
-        "og:title": "Have you read Trump ?",
-        'og:image': path.resolve('src/assets/images/social/preview.jpg'),
-        "og:description": "",
-        "og:site_name": "Have you read Trump?",
-        "og:locale": "en_US",
-        "og:article:author": "Naomi Hauret",
-    },
-    twitter: {
-        "twitter:card": "summary_large_image",
-        "twitter:creator": "@naomiHauret",
-        "twitter:url": "http://haaaveyoureadtrump.surge.sh",
-        "twitter:title": "Have you read Trump ?",
-        "twitter:description":
-            "Have you read Trump ?",
-        "twitter:image": path.resolve('src/assets/images/social/preview.jpg'),
-    },
+  appUrl: "http://haaaveyoureadtrump.surge.sh",
+  facebook: {
+    "og:url": "http://haaaveyoureadtrump.surge.sh",
+    "og:type": "website",
+    "og:title": "Haaave you read Trump ?",
+    "og:image": path.resolve("src/assets/images/social/preview.jpg"),
+    "og:description":
+      "Besides being the 45th president of The United States and a very contraversal man, Donald Trump is also known for his absolute passion: Twitter.",
+    "og:site_name": "Haaave you read Trump?",
+    "og:locale": "en_US",
+    "og:article:author": "Naomi Hauret",
+  },
+  twitter: {
+    "twitter:card": "summary_large_image",
+    "twitter:creator": "@naomiHauret",
+    "twitter:url": "http://haaaveyoureadtrump.surge.sh",
+    "twitter:title": "Haaave you read Trump ?",
+    "twitter:description":
+      "Besides being the 45th president of The United States and a very contraversal man, Donald Trump is also known for his absolute passion: Twitter.",
+    "twitter:image": path.resolve("src/assets/images/social/preview.jpg"),
+  },
 })
 
 let plugins = [
