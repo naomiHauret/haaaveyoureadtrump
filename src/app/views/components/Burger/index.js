@@ -23,8 +23,8 @@ export default (props) => {
       marginBottom: "-20px",
       "> img": {
         transform:
-          isSelectSliceView === true
-            ? "translate(-100%, -20%) rotate(5deg)"
+          isSelectSliceView === true || (isCustom === true && currentBurger.length < 13)
+            ? "translate(-35%, 10%) rotate(5deg)"
             : unfoldBurger === false
               ? "rotate(0)"
               : "rotate(5deg)",
@@ -260,13 +260,13 @@ export default (props) => {
         ":hover": {
           "> div": {
             ":not(:first-child)": {
-              paddingTop: "45px",
+              paddingTop: isCustom === true ? "30px" : currentBurger.length === slicesNames.length ? 0 : "45px",
             },
             ":nth-child(2)": {
-              paddingTop: "0",
+              paddingTop: isSelectSliceView !== true && 0,
             },
             "> img": {
-              opacity: 0.5,
+              opacity: isCustom === true ? 1 : 0.5,
             },
           },
         },
@@ -274,7 +274,12 @@ export default (props) => {
           transition: "all 550ms ease-in-out",
           position: "relative",
           ":not(:first-child)": {
-            paddingTop: isSelectSliceView === true ? "45px" : 0,
+            paddingTop:
+              isSelectSliceView === true
+                ? "45px"
+                : isCustom === true && currentBurger.length < slicesNames.length
+                  ? "35px"
+                  : 0,
           },
           ":nth-child(2)": {
             paddingTop: "0",
@@ -291,7 +296,7 @@ export default (props) => {
           },
           "> img": {
             transition: "250ms ease-in-out all",
-            opacity: isSelectSliceView === true ? 0.5 : 1,
+            opacity: isSelectSliceView === true ? 0.425 : 1,
             ":hover": {
               opacity: isSelectSliceView === true ? 0.75 : 1,
               cursor: "pointer",
@@ -315,6 +320,7 @@ export default (props) => {
           name={slice.name}
           data={slice.data}
           isSelectSliceView={isSelectSliceView}
+          isActive={currentBurger.indexOf(slice.name) > -1}
           toggleSlice={actions.toggleSlice}
         />
       ))}

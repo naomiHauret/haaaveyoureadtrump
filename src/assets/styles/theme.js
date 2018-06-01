@@ -13,6 +13,12 @@ const fontFamily = {
     h2:
       '"MontserratLight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans"',
   },
+  burgerData: {
+    default:
+      '"MontserratLight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans"',
+    percentage:
+      '"MontserratBlack", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans"',
+  },
 }
 
 const colorPalette = {

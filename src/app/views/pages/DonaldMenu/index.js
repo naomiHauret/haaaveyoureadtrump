@@ -5,6 +5,8 @@ import cxs from "cxs"
 import { ds } from "assets/styles/theme"
 import { donaldMenuMetaTitle } from "app/routes"
 import Burger from "app/views/components/Burger"
+import data from "assets/data/data.csv"
+import anime from "animejs"
 
 const baseFontSize = ds.get("typo.sizes.base")
 
@@ -85,6 +87,91 @@ export default () => (state, actions) => {
             </div>
           </div>
         </div>
+        {state.currentBurger.length > 0 && (
+          <div>
+            {() => {
+              const summarize = (accumulator, currentValue) => accumulator + currentValue
+
+              const filteredData = data.filter((content) => state.currentBurger.indexOf(content.categories) > -1)
+              const displayedData = filteredData.length
+              const likesData = filteredData.map((d) => d.likes).reduce(summarize)
+
+              const retweetsData = filteredData.map((d) => d.retweets).reduce(summarize)
+
+              const tweetsPercentage = Math.round((displayedData / data.length) * 100 * 100) / 100
+              return (
+                <div
+                  class={cxs({
+                    position: "fixed",
+                    width: "auto",
+                    height: "auto",
+                    bottom: `${(55 / 1440) * 100}%`,
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    textAlign: "center",
+                    color: ds.get("colors.texts.legends.light"),
+                    "> div": {
+                      ":not(:last-child)": {
+                        marginBottom: ds.pxTo(12.5, baseFontSize, "rem"),
+                      },
+                    },
+                  })}
+                >
+                  <div
+                    class={cxs({
+                      fontWeight: ds.get("typo.fontWeight.normal"),
+                      fontFamily: ds.get("typo.fontFamily.burgerData.percentage"),
+                    })}
+                  >
+                    {tweetsPercentage} %
+                  </div>
+                  <div
+                    class={cxs({
+                      fontWeight: ds.get("typo.fontWeight.light"),
+                      fontFamily: ds.get("typo.fontFamily.burgerData.default"),
+                      display: "flex",
+                      alignItems: "center",
+                    })}
+                  >
+                    <div
+                      class={cxs({
+                        width: ds.pxTo(25, baseFontSize, "rem"),
+                        marginRight: ds.pxTo(10, baseFontSize, "rem"),
+                      })}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 87.5 61.5" fill="currentColor">
+                        <path d="M56.9 61.1H27.3c-7.1 0-12.9-5.8-12.9-12.9V3.8h3.7v44.4c0 5.1 4.1 9.2 9.2 9.2h29.6v3.7z" />
+                        <path d="M29.8 19.9L16.3 6.4 2.8 19.9.2 17.3 16.3 1.2l16.1 16.1zm43.8 39.4h-3.7V14.9c0-5.1-4.1-9.2-9.2-9.2H30.1V2h30.5c7.1 0 12.9 5.8 12.9 12.9l.1 44.4z" />
+                        <path d="M71.7 61.9L55.6 45.8l2.6-2.6 13.5 13.5 13.5-13.5 2.6 2.6z" />
+                      </svg>
+                    </div>
+                    {(retweetsData / 1000).toFixed(2)} K
+                  </div>
+                  <div
+                    class={cxs({
+                      fontWeight: ds.get("typo.fontWeight.light"),
+                      fontFamily: ds.get("typo.fontFamily.burgerData.default"),
+                      display: "flex",
+                      alignItems: "center",
+                    })}
+                  >
+                    <div
+                      class={cxs({
+                        width: ds.pxTo(25, baseFontSize, "rem"),
+                        marginRight: ds.pxTo(10, baseFontSize, "rem"),
+                      })}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89.5 78" fill="currentColor">
+                        <path d="M26 .538c-15 0-25 12.3-25 26 0 12.8 7.3 24 16.2 32.7 8.9 8.8 19.6 15.3 26.9 19 .6.3 1.2.3 1.8 0 7.3-3.8 18-10.3 26.9-19 8.9-8.8 16.2-19.9 16.2-32.7 0-13.7-10-26-25-26-8.8 0-14.7 4.5-19 10.6-4.3-6.1-10.2-10.6-19-10.6zm0 4c8.6 0 13.3 4.3 17.3 11 .6.9 1.8 1.3 2.7.7.3-.2.5-.4.7-.7 4-6.7 8.7-11 17.3-11 12.8 0 21 10.2 21 22 0 11.3-6.5 21.5-15 29.8-8.2 8-18 14.2-25 17.8-7-3.7-16.8-9.8-25-17.8-8.5-8.3-15-18.5-15-29.8 0-11.8 8.2-22 21-22z" />
+                      </svg>
+                    </div>
+                    <span>{(likesData / 1000).toFixed(2)}</span> K
+                  </div>
+                </div>
+              )
+            }}
+          </div>
+        )}
       </div>
     </Page>
   )

@@ -6,7 +6,6 @@ import actions from "app/actions"
 
 import App from "app/views"
 import "assets/styles/index.css"
-import data from "assets/data/data.csv"
 const enhancedActions = Object.assign({}, { location: location.actions }, actions)
 
 const view = (state, actions) => <App state={state} actions={actions} />
