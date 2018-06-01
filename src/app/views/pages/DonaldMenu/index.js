@@ -17,10 +17,10 @@ export default () => (state, actions) => {
   return (
     <Page state={state} actions={actions} metaTitle={metaTitle} key={key}>
       <div class={cxs({ flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "center" })}>
-        <Heading level={1} brand="dark" margin={`0 0 ${ds.pxTo(100, baseFontSize, "rem")} 0`}>
+        <Heading level={1} brand="dark" margin={0}>
           The<br />Donald's menu
         </Heading>
-        <div class={cxs({ display: "flex", justifyContent: "flex-start", alignItems: "center" })}>
+        <div class={cxs({ display: "flex", justifyContent: "flex-start", alignItems: "center", height: "55vh", minHeight: "450px", maxHeight: "500px" })}>
           <div
             class={cxs({
               marginRight: state.currentBurger.length > 0 ? `calc(${(1 / 12) * 100}% + 65px)` : 0,
