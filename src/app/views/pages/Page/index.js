@@ -23,11 +23,11 @@ export default (props, children) => (
         display: "flex",
         flexDirection: "column",
         backgroundColor:
-          props.state.location.pathname === homePageUrl
+          props.state.location.pathname === homePageUrl || props.state.showGraph === true
             ? ds.get("colors.backgrounds.dark")
             : ds.get("colors.backgrounds.light"),
         color:
-          props.state.location.pathname === homePageUrl
+          props.state.location.pathname === homePageUrl || props.state.showGraph === true
             ? ds.get("colors.texts.paragraphs.light")
             : ds.get("colors.texts.paragraphs.dark"),
       })}

@@ -6,4 +6,5 @@ export default {
   donaldMenuVisibleParagraph: null,
   unfoldBurger: false,
   currentBurger: [],
+  showGraph: false,
 }

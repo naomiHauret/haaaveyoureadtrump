@@ -255,13 +255,27 @@ export default (props) => {
   return (
     <div
       class={cxs({
-        transform: isSelectSliceView === true ? "scale(0.4)" : isCustom === true && currentBurger.length > 10 && currentBurger.length < slicesNames.length ? "translateY(-10px) scale(1)" : "scale(1)",
+        transform:
+          isSelectSliceView === true
+            ? "scale(0.4)"
+            : isCustom === true && currentBurger.length > 10 && currentBurger.length < slicesNames.length && currentBurger.length > 7
+            ? "translateY(-10px) scale(1)"
+            : isCustom === true && currentBurger.length < slicesNames.length && currentBurger.length <= 6
+            ? "translateY(5%) scale(1)"
+            : "scale(1)",
         filter: isSelectSliceView === true ? "grayscale(1)" : "grayscale(0)",
-
+        transition: "all 550ms ease-in-out",
         ":hover": {
           "> div": {
             ":not(:first-child)": {
-              paddingTop: currentBurger.length === slicesNames.length && isCustom === false ? 0 : isCustom === true ? "30px" : isSelectSliceView === true ? "55px" : "45px",
+              paddingTop:
+                currentBurger.length === slicesNames.length && isCustom === false
+                  ? 0
+                  : isCustom === true
+                    ? "30px"
+                    : isSelectSliceView === true
+                      ? "55px"
+                      : "45px",
             },
             ":nth-child(2)": {
               paddingTop: isSelectSliceView !== true && 0,

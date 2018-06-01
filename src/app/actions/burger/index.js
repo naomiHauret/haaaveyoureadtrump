@@ -2,6 +2,9 @@ export default {
   toggleUnfoldBurger: ({ value }) => (state) => ({
     unfoldBurger: value,
   }),
+  toggleShowGraph: () => (state) => ({
+    showGraph: !state.showGraph,
+  }),
   toggleSlice: ({ sliceName }) => (state) => {
     let previousBurger = state.currentBurger
     let isSliceInBurger = previousBurger.indexOf(sliceName)

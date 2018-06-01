@@ -80,7 +80,8 @@ export const myDesignSystem = {
       },
       legends: {
         dark: colorPalette.americanBlack,
-        light: colorPalette.americanLightBlue,
+        colorful: colorPalette.americanLightBlue,
+        light: colorPalette.americanWhite,
       },
       navigation: colorPalette.americanLightBlue,
     },
