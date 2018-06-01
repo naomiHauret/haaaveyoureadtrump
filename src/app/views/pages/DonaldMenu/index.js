@@ -23,7 +23,7 @@ export default () => (state, actions) => {
         <div class={cxs({ display: "flex", justifyContent: "flex-start", alignItems: "center", height: "55vh", minHeight: "450px", maxHeight: "500px" })}>
           <div
             class={cxs({
-              marginRight: state.currentBurger.length > 0 ? `calc(${(1 / 12) * 100}% + 65px)` : 0,
+              marginRight: state.currentBurger.length > 0 ? `calc(${(1 / 12) * 100}% + 27px)` : 0,
               marginLeft: state.currentBurger.length > 0 ? "-65px" : `${(1 / 12) * 100}%`,
               width: state.currentBurger.length > 0 ? "auto" : `${(4 / 12) * 100}%`,
             })}
