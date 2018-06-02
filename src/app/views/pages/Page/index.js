@@ -25,9 +25,9 @@ export default (props, children) => (
         backgroundColor:
           props.state.location.pathname === homePageUrl
             ? ds.get("colors.backgrounds.dark")
-            : props.state.location.pathname !== homePageUrl &&  props.state.showGraph === true 
-            ? 'transparent' 
-            : ds.get("colors.backgrounds.light"),
+            : props.state.location.pathname !== homePageUrl && props.state.showGraph === true
+              ? "transparent"
+              : ds.get("colors.backgrounds.light"),
         color:
           props.state.location.pathname === homePageUrl || props.state.showGraph === true
             ? ds.get("colors.texts.paragraphs.light")
@@ -41,6 +41,13 @@ export default (props, children) => (
           display: "flex",
           flexDirection: "column",
           width: ds.get("grid.width.xs"),
+          backgroundImage:
+            props.state.location.pathname !== homePageUrl && props.state.showGraph === false
+              ? `url(${require("assets/images/content/background.png")})`
+              : "",
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
           "@media (min-width: 768px)": {
             width: ds.pxTo(ds.get("grid.width.sm"), baseFontSize, "rem"),
             margin: "0 auto",

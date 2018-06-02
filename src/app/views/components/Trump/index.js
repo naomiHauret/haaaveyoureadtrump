@@ -19,7 +19,7 @@ export default ({ showParagraph }) => (
         renderer: "canvas",
         loop: false,
         autoplay: true,
-        animationData: require('assets/animations/tie/tie-only.json'),
+        animationData: require("assets/animations/tie/tie-only.json"),
         assetsPath: `${animationImgProdPath}/tie/`,
       })
       tieAnimation.setSpeed(1.5)
@@ -29,7 +29,7 @@ export default ({ showParagraph }) => (
         renderer: "canvas",
         loop: false,
         autoplay: true,
-        animationData: require('assets/animations/hair/hair-only.json'),
+        animationData: require("assets/animations/hair/hair-only.json"),
         assetsPath: `${animationImgProdPath}/hair/`,
       })
       hairAnimation.setSpeed(1.5)
@@ -39,7 +39,7 @@ export default ({ showParagraph }) => (
         renderer: "canvas",
         loop: false,
         autoplay: true,
-        animationData: require('assets/animations/mouth/mouth-only.json'),
+        animationData: require("assets/animations/mouth/mouth-only.json"),
         assetsPath: `${animationImgProdPath}/mouth/`,
       })
       mouthAnimation.setSpeed(1.5)
@@ -50,7 +50,7 @@ export default ({ showParagraph }) => (
         renderer: "canvas",
         loop: false,
         autoplay: true,
-        animationData: require('assets/animations/cheeks/cheeks-only.json'),
+        animationData: require("assets/animations/cheeks/cheeks-only.json"),
         assetsPath: `${animationImgProdPath}/cheeks/`,
       })
       cheeksAnimation.setSpeed(1.5)
@@ -61,7 +61,7 @@ export default ({ showParagraph }) => (
         renderer: "canvas",
         loop: false,
         autoplay: true,
-        animationData: require('assets/animations/eyes/eyes-only.json'),
+        animationData: require("assets/animations/eyes/eyes-only.json"),
         assetsPath: `${animationImgProdPath}/eyes/`,
       })
       eyesAnimation.setSpeed(1.25)
@@ -71,7 +71,7 @@ export default ({ showParagraph }) => (
     <div
       class={cxs({
         width: "355px", //450
-        height: "311px",//395
+        height: "311px", //395
         position: "relative",
         margin: "auto",
         "> div": {
@@ -80,7 +80,7 @@ export default ({ showParagraph }) => (
       })}
     >
       <img
-        src={require('assets/images/content/shadows/trump.svg')} // * 0.78
+        src={require("assets/images/content/shadows/trump.svg")} // * 0.78
         class={cxs({
           width: "372px", // 472
           height: "321px", // 407
@@ -91,7 +91,7 @@ export default ({ showParagraph }) => (
         })}
       />
       <img
-        src={require('assets/images/content/trumpBody.png')}
+        src={require("assets/images/content/trumpBody.png")}
         class={cxs({
           width: "100%",
           height: "100%",

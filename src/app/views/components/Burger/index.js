@@ -40,7 +40,7 @@ export default (props) => {
     }),
     name: "Fake News",
     data: null,
-    img:  require("assets/images/content/burger/pain_top.svg"),
+    img: require("assets/images/content/burger/pain_top.svg"),
   }
 
   const CROOKED_HILARY = {
@@ -54,7 +54,7 @@ export default (props) => {
     }),
     name: "Crooked Hilary",
     data: null,
-    img:  require("assets/images/content/burger/oignons.svg"),
+    img: require("assets/images/content/burger/oignons.svg"),
   }
 
   const GOVERNMENT = {
@@ -71,7 +71,7 @@ export default (props) => {
     }),
     name: "Government",
     data: null,
-    img:  require("assets/images/content/burger/bacon.svg"),
+    img: require("assets/images/content/burger/bacon.svg"),
   }
 
   const DRAIN_THE_SWAMP = {
@@ -88,7 +88,7 @@ export default (props) => {
     }),
     name: "Drain The Swamp",
     data: null,
-    img:  require("assets/images/content/burger/mayonnaise.svg"),
+    img: require("assets/images/content/burger/mayonnaise.svg"),
   }
 
   const OBAMACARE = {
@@ -102,7 +102,7 @@ export default (props) => {
     }),
     name: "Obamacare",
     data: null,
-    img:  require("assets/images/content/burger/ketchup.svg"),
+    img: require("assets/images/content/burger/ketchup.svg"),
   }
 
   const ME = {
@@ -118,7 +118,7 @@ export default (props) => {
     }),
     name: "Me, Myself and I",
     data: null,
-    img:  require("assets/images/content/burger/steak.svg"),
+    img: require("assets/images/content/burger/steak.svg"),
   }
 
   const OTHER = {
@@ -168,7 +168,7 @@ export default (props) => {
     }),
     name: "Trump Company",
     data: null,
-    img:  require("assets/images/content/burger/steak.svg"),
+    img: require("assets/images/content/burger/steak.svg"),
   }
 
   const FAMILY = {
@@ -185,7 +185,7 @@ export default (props) => {
     }),
     name: "Family",
     data: null,
-    img:  require("assets/images/content/burger/tomates.svg"),
+    img: require("assets/images/content/burger/tomates.svg"),
   }
 
   const WORLD_NEWS = {
@@ -202,7 +202,7 @@ export default (props) => {
     }),
     name: "World News",
     data: null,
-    img:  require("assets/images/content/burger/salade.svg"),
+    img: require("assets/images/content/burger/salade.svg"),
   }
 
   const MAGA = {
@@ -216,7 +216,7 @@ export default (props) => {
     sliceTextStyle: cxs({ transform: "translate(102.5%, -50%)" }),
     name: "MAGA",
     data: null,
-    img:  require("assets/images/content/burger/pain_bottom.svg"),
+    img: require("assets/images/content/burger/pain_bottom.svg"),
   }
 
   let slices = [
@@ -247,11 +247,14 @@ export default (props) => {
         transform:
           isSelectSliceView === true
             ? "scale(0.4)"
-            : isCustom === true && currentBurger.length > 10 && currentBurger.length < slicesNames.length && currentBurger.length > 7
-            ? "translateY(-10px) scale(1)"
-            : isCustom === true && currentBurger.length < slicesNames.length && currentBurger.length <= 6
-            ? "translateY(5%) scale(1)"
-            : "scale(1)",
+            : isCustom === true &&
+              currentBurger.length > 10 &&
+              currentBurger.length < slicesNames.length &&
+              currentBurger.length > 7
+              ? "translateY(-10px) scale(1)"
+              : isCustom === true && currentBurger.length < slicesNames.length && currentBurger.length <= 6
+                ? "translateY(5%) scale(1)"
+                : "scale(1)",
         filter: isSelectSliceView === true ? "grayscale(1)" : "grayscale(0)",
         transition: "all 550ms ease-in-out",
         ":hover": {
