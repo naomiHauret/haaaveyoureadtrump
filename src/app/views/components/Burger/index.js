@@ -1,18 +1,7 @@
 import { h } from "hyperapp"
 import { ds } from "assets/styles/theme"
 import cxs from "cxs"
-import bacon from "assets/images/content/burger/bacon.svg"
-import cheddar from "assets/images/content/burger/cheddar.svg"
-import drapeau from "assets/images/content/burger/drapeau.svg"
-import galette from "assets/images/content/burger/galette.svg"
-import ketchup from "assets/images/content/burger/ketchup.svg"
-import mayonnaise from "assets/images/content/burger/mayonnaise.svg"
-import oignons from "assets/images/content/burger/oignons.svg"
-import painBottom from "assets/images/content/burger/pain_bottom.svg"
-import painTop from "assets/images/content/burger/pain_top.svg"
-import salade from "assets/images/content/burger/salade.svg"
-import steak from "assets/images/content/burger/steak.svg"
-import tomates from "assets/images/content/burger/tomates.svg"
+
 import Slice from "app/views/components/Burger/Slice"
 
 export default (props) => {
@@ -35,7 +24,7 @@ export default (props) => {
     }),
     name: "Presidential Elections",
     data: null,
-    img: drapeau,
+    img: require("assets/images/content/burger/drapeau.svg"),
   }
 
   const FAKE_NEWS = {
@@ -51,7 +40,7 @@ export default (props) => {
     }),
     name: "Fake News",
     data: null,
-    img: painTop,
+    img:  require("assets/images/content/burger/pain_top.svg"),
   }
 
   const CROOKED_HILARY = {
@@ -65,7 +54,7 @@ export default (props) => {
     }),
     name: "Crooked Hilary",
     data: null,
-    img: oignons,
+    img:  require("assets/images/content/burger/oignons.svg"),
   }
 
   const GOVERNMENT = {
@@ -82,7 +71,7 @@ export default (props) => {
     }),
     name: "Government",
     data: null,
-    img: bacon,
+    img:  require("assets/images/content/burger/bacon.svg"),
   }
 
   const DRAIN_THE_SWAMP = {
@@ -99,7 +88,7 @@ export default (props) => {
     }),
     name: "Drain The Swamp",
     data: null,
-    img: mayonnaise,
+    img:  require("assets/images/content/burger/mayonnaise.svg"),
   }
 
   const OBAMACARE = {
@@ -113,7 +102,7 @@ export default (props) => {
     }),
     name: "Obamacare",
     data: null,
-    img: ketchup,
+    img:  require("assets/images/content/burger/ketchup.svg"),
   }
 
   const ME = {
@@ -129,7 +118,7 @@ export default (props) => {
     }),
     name: "Me, Myself and I",
     data: null,
-    img: steak,
+    img:  require("assets/images/content/burger/steak.svg"),
   }
 
   const OTHER = {
@@ -146,7 +135,7 @@ export default (props) => {
     }),
     name: "Other",
     data: null,
-    img: cheddar,
+    img: require("assets/images/content/burger/cheddar.svg"),
   }
 
   const ARMY = {
@@ -162,7 +151,7 @@ export default (props) => {
     }),
     name: "Army",
     data: null,
-    img: galette,
+    img: require("assets/images/content/burger/galette.svg"),
   }
 
   const COMPANY = {
@@ -179,7 +168,7 @@ export default (props) => {
     }),
     name: "Trump Company",
     data: null,
-    img: steak,
+    img:  require("assets/images/content/burger/steak.svg"),
   }
 
   const FAMILY = {
@@ -196,7 +185,7 @@ export default (props) => {
     }),
     name: "Family",
     data: null,
-    img: tomates,
+    img:  require("assets/images/content/burger/tomates.svg"),
   }
 
   const WORLD_NEWS = {
@@ -213,7 +202,7 @@ export default (props) => {
     }),
     name: "World News",
     data: null,
-    img: salade,
+    img:  require("assets/images/content/burger/salade.svg"),
   }
 
   const MAGA = {
@@ -227,7 +216,7 @@ export default (props) => {
     sliceTextStyle: cxs({ transform: "translate(102.5%, -50%)" }),
     name: "MAGA",
     data: null,
-    img: painBottom,
+    img:  require("assets/images/content/burger/pain_bottom.svg"),
   }
 
   let slices = [

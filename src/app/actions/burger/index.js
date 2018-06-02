@@ -2,7 +2,7 @@ export default {
   toggleUnfoldBurger: ({ value }) => (state) => ({
     unfoldBurger: value,
   }),
-  toggleShowGraph: () => (state) => ({
+  toggleGraph: () => (state) => ({
     showGraph: !state.showGraph,
   }),
   toggleSlice: ({ sliceName }) => (state) => {

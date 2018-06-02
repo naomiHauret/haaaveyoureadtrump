@@ -2,12 +2,6 @@ import { h } from "hyperapp"
 import { ds } from "assets/styles/theme"
 import cxs from "cxs"
 import lottie from "lottie-web"
-import tie from "assets/animations/tie/tie-only.json"
-import cheeks from "assets/animations/cheeks/cheeks-only.json"
-import hair from "assets/animations/hair/hair-only.json"
-import mouth from "assets/animations/mouth/mouth-only.json"
-import eyes from "assets/animations/eyes/eyes-only.json"
-import body from "assets/images/content/trumpBody.png"
 
 const animationImgProdPath = "/assets/images/animations/"
 
@@ -25,7 +19,7 @@ export default ({ showParagraph }) => (
         renderer: "canvas",
         loop: false,
         autoplay: true,
-        animationData: tie,
+        animationData: require('assets/animations/tie/tie-only.json'),
         assetsPath: `${animationImgProdPath}/tie/`,
       })
       tieAnimation.setSpeed(1.5)
@@ -35,7 +29,7 @@ export default ({ showParagraph }) => (
         renderer: "canvas",
         loop: false,
         autoplay: true,
-        animationData: hair,
+        animationData: require('assets/animations/hair/hair-only.json'),
         assetsPath: `${animationImgProdPath}/hair/`,
       })
       hairAnimation.setSpeed(1.5)
@@ -45,7 +39,7 @@ export default ({ showParagraph }) => (
         renderer: "canvas",
         loop: false,
         autoplay: true,
-        animationData: mouth,
+        animationData: require('assets/animations/mouth/mouth-only.json'),
         assetsPath: `${animationImgProdPath}/mouth/`,
       })
       mouthAnimation.setSpeed(1.5)
@@ -56,7 +50,7 @@ export default ({ showParagraph }) => (
         renderer: "canvas",
         loop: false,
         autoplay: true,
-        animationData: cheeks,
+        animationData: require('assets/animations/cheeks/cheeks-only.json'),
         assetsPath: `${animationImgProdPath}/cheeks/`,
       })
       cheeksAnimation.setSpeed(1.5)
@@ -67,7 +61,7 @@ export default ({ showParagraph }) => (
         renderer: "canvas",
         loop: false,
         autoplay: true,
-        animationData: eyes,
+        animationData: require('assets/animations/eyes/eyes-only.json'),
         assetsPath: `${animationImgProdPath}/eyes/`,
       })
       eyesAnimation.setSpeed(1.25)
@@ -86,7 +80,7 @@ export default ({ showParagraph }) => (
       })}
     >
       <img
-        src={body}
+        src={require('assets/images/content/trumpBody.png')}
         class={cxs({
           width: "100%",
           height: "100%",

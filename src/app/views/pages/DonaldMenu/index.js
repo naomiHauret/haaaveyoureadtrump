@@ -37,7 +37,7 @@ export default () => (state, actions) => {
               width: state.currentBurger.length > 0 ? "auto" : `${(4 / 12) * 100}%`,
             })}
           >
-            {state.currentBurger.length > 0 && (
+            {state.currentBurger.length > 0 &&  state.showGraph === false && (
               <Burger
                 isSelectSliceView={true}
                 isCustom={false}
@@ -73,7 +73,7 @@ export default () => (state, actions) => {
                 },
               })}
             >
-              {state.currentBurger.length > 0 && (
+              {state.currentBurger.length > 0 && state.showGraph === false && (
                 <Burger
                   unfoldBurger={state.unfoldBurger}
                   currentBurger={state.currentBurger}
@@ -83,7 +83,7 @@ export default () => (state, actions) => {
                   state={state}
                 />
               )}
-              {state.currentBurger.length === 0 && (
+              {state.currentBurger.length === 0 &&  state.showGraph === false && (
                 <Burger
                   unfoldBurger={state.unfoldBurger}
                   currentBurger={state.currentBurger}
@@ -102,6 +102,7 @@ export default () => (state, actions) => {
               const summarize = (accumulator, currentValue) => accumulator + currentValue
 
               const filteredData = data.filter((content) => state.currentBurger.indexOf(content.categories) > -1)
+              console.log(filteredData)
               const displayedData = filteredData.length
               const likesData = filteredData.map((d) => d.likes).reduce(summarize)
 
@@ -164,8 +165,25 @@ export default () => (state, actions) => {
                     </div>
                     <span>{(likesData / 1000).toFixed(2)}</span> K
                   </div>
-                  <button class={cxs({ position: "absolute", right: 0, bottom: "5px" })}>
-                    X
+                  <button
+                    onclick={actions.toggleGraph}
+                    class={
+                      cxs({
+                        cursor: "pointer",
+                        position: "absolute",
+                        right: 0,
+                        bottom: "5px",
+                        display: 'inline-flex',
+                        justifyContent: 'center',
+                        backgroundColor: 'transparent',
+                        border: 0,
+                      })
+                    }
+                  >
+                    <img src={require('assets/images/icons/toggleGraphView.svg')} class={cxs({
+                      transform: state.showGraph === true ? 'rotate(45deg)' : 'rotate(0)',
+                      transition: "250ms ease-in-out",
+                    })}/>
                   </button>
                 </div>
             }}
