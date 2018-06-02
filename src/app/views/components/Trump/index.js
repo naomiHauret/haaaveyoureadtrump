@@ -70,8 +70,8 @@ export default ({ showParagraph }) => (
   >
     <div
       class={cxs({
-        width: "355px",
-        height: "311px",
+        width: "355px", //450
+        height: "311px",//395
         position: "relative",
         margin: "auto",
         "> div": {
@@ -80,6 +80,17 @@ export default ({ showParagraph }) => (
       })}
     >
       <img
+        src={require('assets/images/content/shadows/trump.svg')} // * 0.78
+        class={cxs({
+          width: "372px", // 472
+          height: "321px", // 407
+          position: "absolute",
+          top: "-17px",
+          left: "-27px",
+          zIndex: 0,
+        })}
+      />
+      <img
         src={require('assets/images/content/trumpBody.png')}
         class={cxs({
           width: "100%",
@@ -87,6 +98,7 @@ export default ({ showParagraph }) => (
           position: "absolute",
           top: 0,
           left: 0,
+          zIndex: 1,
         })}
       />
       <div

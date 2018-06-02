@@ -17,9 +17,13 @@ export default () => (state, actions) => {
   return (
     <Page state={state} actions={actions} metaTitle={metaTitle} key={key}>
       <div class={cxs({ flexGrow: 1, display: "flex", flexDirection: "column", justifyContent: "center", position: "relative", })}>
-        <Heading level={1} brand={state.showGraph === true ? "light" : "dark"} margin={0}>
-          The<br />Donald's menu
-        </Heading>
+        <div class={cxs({
+          zIndex: 2,
+        })}>
+          <Heading level={1} brand={state.showGraph === true ? "light" : "dark"} margin={0}>
+            The<br />Donald's menu
+          </Heading>
+        </div>
         <div
           class={cxs({
             display: "flex",
@@ -97,7 +101,9 @@ export default () => (state, actions) => {
           </div>
         </div>
         {state.currentBurger.length > 0 && (
-          <div>
+          <div class={cxs({
+            zIndex: 1,
+          })}>
             {() => {
               const summarize = (accumulator, currentValue) => accumulator + currentValue
 
@@ -177,6 +183,20 @@ export default () => (state, actions) => {
                         justifyContent: 'center',
                         backgroundColor: 'transparent',
                         border: 0,
+                        ":focus": {
+                          outline: 0,
+                        },
+                        "::after": {
+                          content: "' '",
+                          backgroundColor: ds.get("colors.backgrounds.dark"),
+                          borderRadius: "100%",
+                          width: "45px",
+                          height: "45px",
+                          position: "absolute",
+                          zIndex: -1,
+                          transform: state.showGraph === false ? "scale(0)" : "scale3d(120, 120, 1)",
+                          transition: "250ms ease-in-out",
+                        }
                       })
                     }
                   >

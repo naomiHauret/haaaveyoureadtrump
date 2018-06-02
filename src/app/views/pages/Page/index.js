@@ -10,7 +10,7 @@ export default (props, children) => (
   <div
     key="americanPage"
     class={cxs({
-      flexGrow: "1",
+      flexGrow: 1,
       display: "flex",
       fontFamily: ds.get("typo.fontFamily.base"),
       fontWeight: ds.get("typo.fontWeight.normal"),
@@ -19,12 +19,14 @@ export default (props, children) => (
   >
     <div
       class={cxs({
-        flexGrow: "1",
+        flexGrow: 1,
         display: "flex",
         flexDirection: "column",
         backgroundColor:
-          props.state.location.pathname === homePageUrl || props.state.showGraph === true
+          props.state.location.pathname === homePageUrl
             ? ds.get("colors.backgrounds.dark")
+            : props.state.location.pathname !== homePageUrl &&  props.state.showGraph === true 
+            ? 'transparent' 
             : ds.get("colors.backgrounds.light"),
         color:
           props.state.location.pathname === homePageUrl || props.state.showGraph === true
