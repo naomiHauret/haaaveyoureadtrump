@@ -7,7 +7,7 @@ import ScrollIcon from "app/views/components/ScrollIcon"
 import { Enter, Exit } from "@hyperapp/transitions"
 import anime from "animejs"
 
-import { homeMetaTitle } from "app/routes"
+import { homeMetaTitle, aboutPageUrl } from "app/routes"
 
 const baseFontSize = ds.get("typo.sizes.base")
 
@@ -106,7 +106,7 @@ export default () => (state, actions) => {
           </p>
           <p>This represent over 250 tweets.</p>
         </div>
-        <ScrollIcon />
+        <ScrollIcon next={aboutPageUrl} />
       </div>
     </Page>
   )

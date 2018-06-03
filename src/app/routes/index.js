@@ -9,8 +9,8 @@ import DonaldMenu from "app/views/pages/DonaldMenu"
 import NotFound from "app/views/pages/NotFound"
 
 const homePageName = "Haaave you read Trump ?"
-const aboutPageName = "Meet Donald"
-const donaldMenuPageName = "The Donald’s menu"
+export const aboutPageName = "Meet Donald"
+export const donaldMenuPageName = "The Donald’s menu"
 const notFoundPageName = "You just hit a wall..."
 
 export const baseUrl = "/"

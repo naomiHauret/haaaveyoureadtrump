@@ -64,7 +64,7 @@ export default (props, children) => {
         })}
       >
         {state.location.pathname !== homePageUrl &&
-          <Navigation location={state.location}/>
+          <Navigation location={state.location} showGraph={state.showGraph} />
         }
         {children}
       </div>
