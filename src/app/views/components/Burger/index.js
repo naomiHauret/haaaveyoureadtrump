@@ -258,6 +258,10 @@ export default (props) => {
         filter: isSelectSliceView === true ? "grayscale(1)" : "grayscale(0)",
         transition: "all 550ms ease-in-out",
         ":hover": {
+          "> img" : {
+            transform: "scale(0)",
+            opacity: 0,
+          },
           "> div": {
             ":not(:first-child)": {
               paddingTop:
@@ -319,6 +323,18 @@ export default (props) => {
       onmouseenter={() => isSelectSliceView === false && actions.toggleUnfoldBurger({ value: true })}
       onmouseleave={() => isSelectSliceView === false && actions.toggleUnfoldBurger({ value: false })}
     >
+      {isSelectSliceView === false && isCustom === false && <img
+          src={require('assets/images/content/shadows/burger.svg')}
+          alt=""
+          class={cxs({
+            left: "-30px",
+            position: "absolute",
+            bottom: "30px",
+            width: "220px",
+            height: "235px",
+            transition: "550ms ease-in-out",
+          })}
+        />}
       {slices.map((slice) => (
         <Slice
           sliceWrapperStyle={slice.sliceWrapperStyle}
