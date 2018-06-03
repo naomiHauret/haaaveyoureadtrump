@@ -5,7 +5,7 @@ import cxs from "cxs"
 import Slice from "app/views/components/Burger/Slice"
 
 export default (props) => {
-  const { unfoldBurger, currentBurger, actions, isSelectSliceView, isCustom } = props
+  const { unfoldBurger, currentBurger, actions, isSelectSliceView, isCustom, key } = props
   const PRESIDENTIAL_ELECTIONS = {
     sliceWrapperStyle: cxs({
       transform: "translateX(50%)",

@@ -101,6 +101,7 @@ export default () => (state, actions) => {
             >
               {state.currentBurger.length > 0 && (
                 <Burger
+                  key="selectsliceburger"
                   isSelectSliceView={true}
                   isCustom={false}
                   actions={actions}
@@ -147,6 +148,7 @@ export default () => (state, actions) => {
               {state.currentBurger.length > 0 &&
                 state.showGraph === false && (
                   <Burger
+                    key="customburger"
                     unfoldBurger={state.unfoldBurger}
                     currentBurger={state.currentBurger}
                     isSelectSliceView={false}
@@ -158,6 +160,7 @@ export default () => (state, actions) => {
               {state.currentBurger.length === 0 &&
                 state.showGraph === false && (
                   <Burger
+                    key="helloburger"
                     unfoldBurger={state.unfoldBurger}
                     currentBurger={state.currentBurger}
                     isSelectSliceView={false}

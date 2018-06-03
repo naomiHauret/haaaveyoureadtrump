@@ -64,16 +64,21 @@
     "cxs": "^6.2.0",
     "design-system-utils": "^0.12.1",
     "hyperapp": "^1.2.6",
+    "lodash.debounce": "^4.0.8",
     "lottie-web": "^5.1.16"
   },
   "browserslist": [
     "> 1%",
-    "not ie <=11",
-    "not ie_mob <=11",
-    "not bb <=10",
-    "not op_mob <= 37",
-    "not samsung <= 7",
-    "not op_mini all"
+    "not safari <= 10",
+    "not ie all",
+    "not ie_mob all",
+    "not bb all",
+    "not op_mob all",
+    "not samsung all",
+    "not op_mini all",
+    "not and_qq all",
+    "not and_uc all",
+    "not baidu all"
   ],
   "lint-staged": {
     "src/**/*.{js,jsx}": [

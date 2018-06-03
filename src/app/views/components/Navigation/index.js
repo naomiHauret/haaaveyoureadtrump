@@ -9,10 +9,11 @@ export default ({ location, showGraph }) => (
   <nav
     class={cxs({
       position: "absolute",
-      zIndex: showGraph === true ? 0 : 2,
+      zIndex: location.pathname === homePageUrl ? -1 : showGraph === true ? 0 : 2,
       right: ds.pxTo(65, baseFontSize, "rem"),
       top: "50%",
       transform: "translateY(-50%)",
+      opacity: location.pathname === homePageUrl ? 0 : 1,
     })}
   >
     <ul
@@ -53,7 +54,9 @@ export default ({ location, showGraph }) => (
           to={aboutPageUrl}
           class={cxs({
             borderColor:
-              location.pathname === aboutPageUrl ? ds.get("colors.texts.navigation") : ds.get("colors.americanDarkGrey"),
+              location.pathname === aboutPageUrl
+                ? ds.get("colors.texts.navigation")
+                : ds.get("colors.americanDarkGrey"),
             backgroundColor: location.pathname === aboutPageUrl ? ds.get("colors.texts.navigation") : "transparent",
           })}
         >
