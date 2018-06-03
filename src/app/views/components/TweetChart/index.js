@@ -3,15 +3,19 @@ import { ds } from "assets/styles/theme"
 import cxs from "cxs"
 import Chart from "chart.js"
 
-
 export default ({ categories, tweets }) => {
   const baseFontSize = ds.get("typo.sizes.base")
   //const tweetDates = [...new Set(tweets.map(t => t.date))] // all dates possible (unique)
   //const tweetsByDate = tweetDates.map(d => tweets.filter(tweet => tweet.date = d) )
   //const tweetsByCategories = [...categories.map(category => tweets.filter(tweet => tweet.categories === category))]
- //console.log(tweets.filter(tweet => tweet.categories ==="Crooked Hilary").map(t => t.date) )
-  return <div key="tweetswrapper" class={cxs({ width: "100%" })}>
-      <canvas id="tweetChart" key="tweetssss" oncreate={(e) => new Chart(document.getElementById("tweetChart"), {
+  //console.log(tweets.filter(tweet => tweet.categories ==="Crooked Hilary").map(t => t.date) )
+  return (
+    <div key="tweetswrapper" class={cxs({ width: "100%" })}>
+      <canvas
+        id="tweetChart"
+        key="tweetssss"
+        oncreate={(e) =>
+          new Chart(document.getElementById("tweetChart"), {
             type: "line",
             options: {
               defaultFontColor: (Chart.defaults.global.defaultFontColor = "white"),
@@ -68,6 +72,9 @@ export default ({ categories, tweets }) => {
                 },
               ],
             },
-          })} />
+          })
+        }
+      />
     </div>
+  )
 }

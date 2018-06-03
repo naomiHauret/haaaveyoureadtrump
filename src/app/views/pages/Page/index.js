@@ -2,11 +2,14 @@ import { h } from "hyperapp"
 import { Enter, Exit } from "@hyperapp/transitions"
 import { ds } from "assets/styles/theme"
 import cxs from "cxs"
+import Navigation from "app/views/components/Navigation"
 import { homePageUrl } from "app/routes"
 
 const baseFontSize = ds.get("typo.sizes.base")
 
-export default (props, children) => (
+export default (props, children) => {
+  const { state, key } = props
+  return (
   <div
     key="americanPage"
     class={cxs({
@@ -23,17 +26,17 @@ export default (props, children) => (
         display: "flex",
         flexDirection: "column",
         backgroundColor:
-          props.state.location.pathname === homePageUrl
+          state.location.pathname === homePageUrl
             ? ds.get("colors.backgrounds.dark")
-            : props.state.location.pathname !== homePageUrl && props.state.showGraph === true
+            : state.location.pathname !== homePageUrl && state.showGraph === true
               ? "transparent"
               : ds.get("colors.backgrounds.light"),
         color:
-          props.state.location.pathname === homePageUrl || props.state.showGraph === true
+          state.location.pathname === homePageUrl || state.showGraph === true
             ? ds.get("colors.texts.paragraphs.light")
             : ds.get("colors.texts.paragraphs.dark"),
       })}
-      key={props.key}
+      key={key}
     >
       <div
         class={cxs({
@@ -42,7 +45,7 @@ export default (props, children) => (
           flexDirection: "column",
           width: ds.get("grid.width.xs"),
           backgroundImage:
-            props.state.location.pathname !== homePageUrl && props.state.showGraph === false
+            state.location.pathname !== homePageUrl && state.showGraph === false
               ? `url(${require("assets/images/content/background.png")})`
               : "",
           backgroundSize: "contain",
@@ -60,8 +63,12 @@ export default (props, children) => (
           },
         })}
       >
+        {state.location.pathname !== homePageUrl &&
+          <Navigation location={state.location}/>
+        }
         {children}
       </div>
     </div>
   </div>
 )
+}

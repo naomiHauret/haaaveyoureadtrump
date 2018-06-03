@@ -95,8 +95,8 @@ export default () => (state, actions) => {
                   margin: 0,
                   ":first-child": {
                     marginBottom: ds.pxTo(35, baseFontSize, "rem"),
-                  }
-                }
+                  },
+                },
               })}
             >
               {state.currentBurger.length > 0 && (
@@ -130,15 +130,15 @@ export default () => (state, actions) => {
               marginLeft: `calc(${(3 / 12) * 100}% - 90px)`,
               width: state.showGraph === false ? `${(4 / 12) * 100}%` : `${(8 / 12) * 100}%`,
             })}
-            >
+          >
             <div
-            class={cxs({
-              position: "absolute",
-              top: "50%",
-              transform: "translateY(-50%)",
-              width: state.showGraph === false ? "auto" : "inherit",
-              marginTop: state.showGraph === false ? 0 : ds.pxTo(60, baseFontSize, "rem"),
-              zIndex: 2,
+              class={cxs({
+                position: "absolute",
+                top: "50%",
+                transform: "translateY(-50%)",
+                width: state.showGraph === false ? "auto" : "inherit",
+                marginTop: state.showGraph === false ? 0 : ds.pxTo(60, baseFontSize, "rem"),
+                zIndex: 2,
                 ":hover": {
                   transform: "translateY(calc(-50 % + 100px))",
                 },
