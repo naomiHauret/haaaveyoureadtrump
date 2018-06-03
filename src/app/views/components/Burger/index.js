@@ -273,9 +273,6 @@ export default (props) => {
                       ? "55px"
                       : "45px",
             },
-            ":nth-child(2)": {
-              paddingTop: isSelectSliceView !== true && 0,
-            },
             "> img": {
               opacity: isCustom === true ? 1 : 0.5,
             },

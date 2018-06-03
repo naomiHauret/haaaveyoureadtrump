@@ -9,7 +9,7 @@ export default ({ location, showGraph }) => (
   <nav
     class={cxs({
       position: "absolute",
-      zIndex: location.pathname === homePageUrl ? -1 : showGraph === true ? 0 : 2,
+      zIndex: location.pathname === homePageUrl || showGraph === true ? -1 : 2,
       right: ds.pxTo(65, baseFontSize, "rem"),
       top: "50%",
       transform: "translateY(-50%)",

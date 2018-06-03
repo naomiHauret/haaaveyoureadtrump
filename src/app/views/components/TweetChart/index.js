@@ -5,10 +5,27 @@ import Chart from "chart.js"
 
 export default ({ categories, tweets }) => {
   const baseFontSize = ds.get("typo.sizes.base")
-  //const tweetDates = [...new Set(tweets.map(t => t.date))] // all dates possible (unique)
-  //const tweetsByDate = tweetDates.map(d => tweets.filter(tweet => tweet.date = d) )
-  //const tweetsByCategories = [...categories.map(category => tweets.filter(tweet => tweet.categories === category))]
-  //console.log(tweets.filter(tweet => tweet.categories ==="Crooked Hilary").map(t => t.date) )
+  const tweetDates = [...new Set(tweets.map((t) => t.date))] // all dates possible (unique)
+  const lineColors = ds.get("colors.chartLines")
+  const tweetsByDateByCategories = []
+  const tweetsData = []
+
+  console.log(lineColors)
+  /*   tweetDates.forEach((date) => {
+    tweetsByDateByCategories[`${date}`] = []
+     categories.forEach((category) => {
+       tweetsByDateByCategories[`${date}`][`${category}`] = tweets.filter((tweet) => (tweet.categories === category && tweet.date === date))
+     })
+  })
+
+    tweetDates.forEach((date) => {
+      tweetsData[`${tweetDates.indexOf(date)}`] = {}
+      categories.forEach((category) => {
+        tweetsData[`${date}`][`${category}`] = tweets.filter((tweet) => tweet.categories === category && tweet.date === date)
+      })
+    })
+ */
+
   return (
     <div key="tweetswrapper" class={cxs({ width: "100%" })}>
       <canvas
@@ -21,6 +38,34 @@ export default ({ categories, tweets }) => {
               defaultFontColor: (Chart.defaults.global.defaultFontColor = "white"),
               defaultFontSize: (Chart.defaults.global.defaultFontSize = 16),
               defaultFontFamily: (Chart.defaults.global.defaultFontFamily = ds.get("typo.fontFamily.base")),
+              tooltips: {
+                backgroundColor: ds.get("colors.backgrounds.medium"),
+                xPadding: 35,
+                yPadding: 15,
+                caretSize: 0,
+                cornerRadius: 0,
+                titleMarginBottom: 15,
+                titleFontFamily: ds.get("typo.fontFamily.tooltip.title"),
+                titleFontSize: 14,
+                bodyFontSize: 14,
+                borderWidth: 0,
+                footerMarginTop: 15,
+                footerFontSize: 20,
+                displayColors: false,
+                callbacks: {
+                  title: (tooltipItem, data) => {
+                    return data.datasets[tooltipItem[0].datasetIndex].data[tooltipItem[0].index].date
+                  },
+
+                  label: (tooltipItem, data) => {
+                    return data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].category
+                  },
+
+                  footer: (tooltipItem, data) => {
+                    return `${data.datasets[tooltipItem[0].datasetIndex].data[tooltipItem[0].index].y} tweets`
+                  },
+                },
+              },
               scales: {
                 xAxes: [
                   {
@@ -41,10 +86,10 @@ export default ({ categories, tweets }) => {
               },
             },
             data: {
-              labels: ["8th Oct.", "8th Nov", "24th Nov"],
+              labels: ["24th Oct.", "8th Nov", "24th Nov"],
               datasets: [
                 {
-                  label: "My First dataset",
+                  label: "Yolo",
                   strokeColor: "rgba(220,220,220,1)",
                   pointColor: "rgba(220,220,220,1)",
                   pointStrokeColor: "#fff",
@@ -54,10 +99,30 @@ export default ({ categories, tweets }) => {
                     {
                       x: 10,
                       y: 20,
+                      category: "Oh yeah ´",
+                      content: "blablablablabla",
+                      date: "une date random",
+                    },
+                    {
+                      x: 12,
+                      y: 8,
+                      category: "Oh yeah ´",
+                      content: "eefj",
+                      date: "une  random",
                     },
                     {
                       x: 15,
                       y: 10,
+                      category: "Oh yeah ´",
+                      content: "blabblabla",
+                      date: "une date ",
+                    },
+                    {
+                      x: 20,
+                      y: 2,
+                      category: "Oh yeah ´",
+                      content: "blablablablabla",
+                      date: "une date random",
                     },
                   ],
                 },
@@ -68,7 +133,22 @@ export default ({ categories, tweets }) => {
                   pointStrokeColor: "#fff",
                   pointHighlightFill: "#fff",
                   pointHighlightStroke: "rgba(151,187,205,1)",
-                  data: [28, 48, 40, 19, 86, 27, 90],
+                  data: [
+                    {
+                      x: 5,
+                      y: 8,
+                      category: "Oh yeah ´",
+                      content: "blablablablabla",
+                      date: "une date random",
+                    },
+                    {
+                      x: 10,
+                      y: 2,
+                      category: "Oh yeah ´",
+                      content: "blablablablabla",
+                      date: "une date random",
+                    },
+                  ],
                 },
               ],
             },

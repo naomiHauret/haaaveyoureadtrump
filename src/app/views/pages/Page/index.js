@@ -13,6 +13,7 @@ export default (props, children) => {
   return (
     <div
       tabindex="0"
+      autofocus
       key="americanPage"
       onkeyup={(e) => {
         e.preventDefault()

@@ -13,6 +13,10 @@ const fontFamily = {
     h2:
       '"MontserratLight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans"',
   },
+  tooltip: {
+    title:
+      '"MontserratLight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans"',
+  },
   burgerData: {
     default:
       '"MontserratLight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans"',
@@ -23,9 +27,12 @@ const fontFamily = {
 
 const colorPalette = {
   americanDeepBlue: "#052870",
+  americanMediumBlue: "#37538C",
   americanLightBlue: "#4286d9",
   americanRed: "#f0362d",
   americanLightRed: "#f3726c",
+  americanYellow: "#FFD34D",
+  americanLightYellow: "#FFE953",
   americanBlack: "#212121",
   americanLightGrey: "#f9f9f9",
   americanDarkGrey: "#e4e4e4",
@@ -68,8 +75,16 @@ export const myDesignSystem = {
     ...colorPalette,
     backgrounds: {
       dark: colorPalette.americanDeepBlue,
+      medium: colorPalette.americanMediumBlue,
       light: colorPalette.americanLightGrey,
     },
+    chartLines: [
+      colorPalette.americanWhite,
+      colorPalette.americanLightBlue,
+      colorPalette.americanLightRed,
+      colorPalette.americanYellow,
+      colorPalette.americanLightYellow,
+    ],
     texts: {
       headings: {
         light: colorPalette.americanWhite,
