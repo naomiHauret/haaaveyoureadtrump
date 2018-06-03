@@ -70,15 +70,12 @@
   "browserslist": [
     "> 1%",
     "not safari <= 10",
-    "not ie all",
-    "not ie_mob all",
-    "not bb all",
-    "not op_mob all",
-    "not samsung all",
-    "not op_mini all",
-    "not and_qq all",
-    "not and_uc all",
-    "not baidu all"
+    "not ie <=11",
+    "not ie_mob <=11",
+    "not bb <=10",
+    "not op_mob <= 37",
+    "not samsung <= 7",
+    "not op_mini all"
   ],
   "lint-staged": {
     "src/**/*.{js,jsx}": [
