@@ -76,59 +76,58 @@ export const myDesignSystem = {
   chartLines: [
     {
       color: colorPalette.americanWhite,
-      dash:  [1 ,0]
+      dash: [1, 0],
     },
     {
       color: colorPalette.americanLightYellow,
-      dash: [1, 0]
+      dash: [1, 0],
     },
 
     {
       color: colorPalette.americanLightBlue,
-      dash: [1, 0]
+      dash: [1, 0],
     },
     {
       color: colorPalette.americanLightRed,
-      dash: [1, 0]
+      dash: [1, 0],
     },
     {
       color: colorPalette.americanYellow,
-      dash: [1, 0]
+      dash: [1, 0],
     },
     {
       color: colorPalette.americanDarkBlue,
-      dash: [1, 0]
+      dash: [1, 0],
     },
     {
       color: colorPalette.americanGreen,
-      dash: [5,5],
+      dash: [5, 5],
     },
     {
       color: colorPalette.americanWhite,
-      dash: [5, 5]
+      dash: [5, 5],
     },
     {
       color: colorPalette.americanLightYellow,
-      dash: [5, 5]
+      dash: [5, 5],
     },
 
     {
       color: colorPalette.americanLightBlue,
-      dash: [5, 5]
+      dash: [5, 5],
     },
     {
       color: colorPalette.americanLightRed,
-      dash: [5, 5]
+      dash: [5, 5],
     },
     {
       color: colorPalette.americanYellow,
-      dash: [5, 5]
+      dash: [5, 5],
     },
     {
       color: colorPalette.americanDarkBlue,
-      dash: [5, 5]
+      dash: [5, 5],
     },
-
   ],
   colors: {
     ...colorPalette,

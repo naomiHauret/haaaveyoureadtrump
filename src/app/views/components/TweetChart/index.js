@@ -20,19 +20,24 @@ export default ({ categories, tweets }) => {
     }
 
     tweetDates.forEach((date) => {
-        item.data.push({
-          x: tweetDates.indexOf(date),
-          y: tweets.filter((tweet) => tweet.categories === category && tweet.date === date).length,
-          category,
-          date,
-        })
+      item.data.push({
+        x: tweetDates.indexOf(date),
+        y: tweets.filter((tweet) => tweet.categories === category && tweet.date === date).length,
+        category,
+        date,
+      })
     })
 
     tweetsData.push(item)
   })
-  
-  return <div key="tweetswrapper" class={cxs({ width: "100%" })}>
-      <canvas id="tweetChart" key="tweetssss" oncreate={(e) => new Chart(document.getElementById("tweetChart"), {
+
+  return (
+    <div key="tweetswrapper" class={cxs({ width: "100%" })}>
+      <canvas
+        id="tweetChart"
+        key="tweetssss"
+        oncreate={(e) =>
+          new Chart(document.getElementById("tweetChart"), {
             type: "line",
             options: {
               defaultFontColor: (Chart.defaults.global.defaultFontColor = "white"),
@@ -94,7 +99,9 @@ export default ({ categories, tweets }) => {
               labels: tweetDates,
               datasets: tweetsData,
             },
-          })}
-          />
+          })
+        }
+      />
     </div>
+  )
 }
