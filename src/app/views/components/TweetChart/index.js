@@ -5,34 +5,34 @@ import Chart from "chart.js"
 
 export default ({ categories, tweets }) => {
   const baseFontSize = ds.get("typo.sizes.base")
-  const tweetDates = [...new Set(tweets.map((t) => t.date))] // all dates possible (unique)
-  const lineColors = ds.get("colors.chartLines")
-  const tweetsByDateByCategories = []
-  const tweetsData = []
+  const lineColors = ds.get("chartLines")
 
-  console.log(lineColors)
-  /*   tweetDates.forEach((date) => {
-    tweetsByDateByCategories[`${date}`] = []
-     categories.forEach((category) => {
-       tweetsByDateByCategories[`${date}`][`${category}`] = tweets.filter((tweet) => (tweet.categories === category && tweet.date === date))
-     })
-  })
+  let tweetDates = [...new Set(tweets.map((t) => t.date))] // all dates possible (unique)
+  let tweetsData = []
+
+  categories.forEach((category, index) => {
+    let item = {
+      label: category,
+      borderColor: lineColors[index].color,
+      borderDash: lineColors[index].dash,
+      fill: false,
+      data: [],
+    }
 
     tweetDates.forEach((date) => {
-      tweetsData[`${tweetDates.indexOf(date)}`] = {}
-      categories.forEach((category) => {
-        tweetsData[`${date}`][`${category}`] = tweets.filter((tweet) => tweet.categories === category && tweet.date === date)
-      })
+        item.data.push({
+          x: tweetDates.indexOf(date),
+          y: tweets.filter((tweet) => tweet.categories === category && tweet.date === date).length,
+          category,
+          date,
+        })
     })
- */
 
-  return (
-    <div key="tweetswrapper" class={cxs({ width: "100%" })}>
-      <canvas
-        id="tweetChart"
-        key="tweetssss"
-        oncreate={(e) =>
-          new Chart(document.getElementById("tweetChart"), {
+    tweetsData.push(item)
+  })
+  
+  return <div key="tweetswrapper" class={cxs({ width: "100%" })}>
+      <canvas id="tweetChart" key="tweetssss" oncreate={(e) => new Chart(document.getElementById("tweetChart"), {
             type: "line",
             options: {
               defaultFontColor: (Chart.defaults.global.defaultFontColor = "white"),
@@ -69,6 +69,11 @@ export default ({ categories, tweets }) => {
               scales: {
                 xAxes: [
                   {
+                    ticks: {
+                      autoSkip: true,
+                      maxTicksLimit: 2,
+                      maxRotation: 0,
+                    },
                     gridLines: {
                       display: false,
                       color: "white",
@@ -86,75 +91,10 @@ export default ({ categories, tweets }) => {
               },
             },
             data: {
-              labels: ["24th Oct.", "8th Nov", "24th Nov"],
-              datasets: [
-                {
-                  label: "Yolo",
-                  strokeColor: "rgba(220,220,220,1)",
-                  pointColor: "rgba(220,220,220,1)",
-                  pointStrokeColor: "#fff",
-                  pointHighlightFill: "#fff",
-                  pointHighlightStroke: "rgba(220,220,220,1)",
-                  data: [
-                    {
-                      x: 10,
-                      y: 20,
-                      category: "Oh yeah ´",
-                      content: "blablablablabla",
-                      date: "une date random",
-                    },
-                    {
-                      x: 12,
-                      y: 8,
-                      category: "Oh yeah ´",
-                      content: "eefj",
-                      date: "une  random",
-                    },
-                    {
-                      x: 15,
-                      y: 10,
-                      category: "Oh yeah ´",
-                      content: "blabblabla",
-                      date: "une date ",
-                    },
-                    {
-                      x: 20,
-                      y: 2,
-                      category: "Oh yeah ´",
-                      content: "blablablablabla",
-                      date: "une date random",
-                    },
-                  ],
-                },
-                {
-                  label: "My Second dataset",
-                  strokeColor: "rgba(151,187,205,1)",
-                  pointColor: "rgba(151,187,205,1)",
-                  pointStrokeColor: "#fff",
-                  pointHighlightFill: "#fff",
-                  pointHighlightStroke: "rgba(151,187,205,1)",
-                  data: [
-                    {
-                      x: 5,
-                      y: 8,
-                      category: "Oh yeah ´",
-                      content: "blablablablabla",
-                      date: "une date random",
-                    },
-                    {
-                      x: 10,
-                      y: 2,
-                      category: "Oh yeah ´",
-                      content: "blablablablabla",
-                      date: "une date random",
-                    },
-                  ],
-                },
-              ],
+              labels: tweetDates,
+              datasets: tweetsData,
             },
-          })
-        }
-      />
+          })}
+          />
     </div>
-  )
 }

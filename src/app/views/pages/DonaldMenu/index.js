@@ -128,8 +128,8 @@ export default () => (state, actions) => {
           )}
           <div
             class={cxs({
-              marginLeft: `calc(${(3 / 12) * 100}% - 90px)`,
-              width: state.showGraph === false ? `${(4 / 12) * 100}%` : `${(8 / 12) * 100}%`,
+              marginLeft: state.showGraph === false ? `calc(${(3 / 12) * 100}% - 90px)` : `${(1 / 12) * 100}%`,
+              width: state.showGraph === false ? `${(4 / 12) * 100}%` : `${(10 / 12) * 100}%`,
             })}
           >
             <div
@@ -138,7 +138,7 @@ export default () => (state, actions) => {
                 top: "50%",
                 transform: "translateY(-50%)",
                 width: state.showGraph === false ? "auto" : "inherit",
-                marginTop: state.showGraph === false ? 0 : ds.pxTo(60, baseFontSize, "rem"),
+                marginTop: state.showGraph === false ? 0 : ds.pxTo(80, baseFontSize, "rem"),
                 zIndex: 2,
                 ":hover": {
                   transform: "translateY(calc(-50 % + 100px))",

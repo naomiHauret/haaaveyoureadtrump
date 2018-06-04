@@ -26,6 +26,7 @@ const fontFamily = {
 }
 
 const colorPalette = {
+  americanDarkBlue: "#020E28",
   americanDeepBlue: "#052870",
   americanMediumBlue: "#37538C",
   americanLightBlue: "#4286d9",
@@ -37,6 +38,7 @@ const colorPalette = {
   americanLightGrey: "#f9f9f9",
   americanDarkGrey: "#e4e4e4",
   americanWhite: "#ffffff",
+  americanGreen: "#D9EF54",
 }
 
 export const myDesignSystem = {
@@ -71,6 +73,63 @@ export const myDesignSystem = {
       base: 12,
     },
   },
+  chartLines: [
+    {
+      color: colorPalette.americanWhite,
+      dash:  [1 ,0]
+    },
+    {
+      color: colorPalette.americanLightYellow,
+      dash: [1, 0]
+    },
+
+    {
+      color: colorPalette.americanLightBlue,
+      dash: [1, 0]
+    },
+    {
+      color: colorPalette.americanLightRed,
+      dash: [1, 0]
+    },
+    {
+      color: colorPalette.americanYellow,
+      dash: [1, 0]
+    },
+    {
+      color: colorPalette.americanDarkBlue,
+      dash: [1, 0]
+    },
+    {
+      color: colorPalette.americanGreen,
+      dash: [5,5],
+    },
+    {
+      color: colorPalette.americanWhite,
+      dash: [5, 5]
+    },
+    {
+      color: colorPalette.americanLightYellow,
+      dash: [5, 5]
+    },
+
+    {
+      color: colorPalette.americanLightBlue,
+      dash: [5, 5]
+    },
+    {
+      color: colorPalette.americanLightRed,
+      dash: [5, 5]
+    },
+    {
+      color: colorPalette.americanYellow,
+      dash: [5, 5]
+    },
+    {
+      color: colorPalette.americanDarkBlue,
+      dash: [5, 5]
+    },
+
+  ],
   colors: {
     ...colorPalette,
     backgrounds: {
@@ -78,13 +137,6 @@ export const myDesignSystem = {
       medium: colorPalette.americanMediumBlue,
       light: colorPalette.americanLightGrey,
     },
-    chartLines: [
-      colorPalette.americanWhite,
-      colorPalette.americanLightBlue,
-      colorPalette.americanLightRed,
-      colorPalette.americanYellow,
-      colorPalette.americanLightYellow,
-    ],
     texts: {
       headings: {
         light: colorPalette.americanWhite,
