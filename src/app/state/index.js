@@ -5,6 +5,6 @@ export default {
   showHomeText: false,
   donaldMenuVisibleParagraph: null,
   unfoldBurger: false,
-  currentBurger: ["Fake News", "Obamacare", "MAGA", "Crooked Hilary"],
-  showGraph: true,
+  currentBurger: [],
+  showGraph: false,
 }
