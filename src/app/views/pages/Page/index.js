@@ -17,69 +17,72 @@ export default (props, children) => {
       key="americanPage"
       onkeyup={(e) => {
         e.preventDefault()
-        const aboutLink = document.querySelector(`nav a[href='${aboutPageUrl}']`)
-        const homeLink = document.querySelector(`nav a[href='${homePageUrl}']`)
-        const menuLink = document.querySelector(`nav a[href='${donaldMenuPageUrl}']`)
-        switch (e.key) {
-          case "ArrowUp":
-            switch (state.location.pathname) {
-              case homePageUrl:
-                menuLink.click()
-                break
+        if (state.showGraph === false) {
+          const aboutLink = document.querySelector(`nav a[href='${aboutPageUrl}']`)
+          const homeLink = document.querySelector(`nav a[href='${homePageUrl}']`)
+          const menuLink = document.querySelector(`nav a[href='${donaldMenuPageUrl}']`)
+          switch (e.key) {
+            case "ArrowUp":
+              switch (state.location.pathname) {
+                case homePageUrl:
+                  menuLink.click()
+                  break
 
-              case aboutPageUrl:
-                homeLink.click()
-                break
-              case donaldMenuPageUrl:
-                aboutLink.click()
-                break
+                case aboutPageUrl:
+                  homeLink.click()
+                  break
+                case donaldMenuPageUrl:
+                  aboutLink.click()
+                  break
 
-              default:
-                break
-            }
-            break
-          case "ArrowDown":
-            switch (state.location.pathname) {
-              case homePageUrl:
-                aboutLink.click()
-                break
+                default:
+                  break
+              }
+              break
+            case "ArrowDown":
+              switch (state.location.pathname) {
+                case homePageUrl:
+                  aboutLink.click()
+                  break
 
-              case aboutPageUrl:
-                menuLink.click()
-                break
-              case donaldMenuPageUrl:
-                homeLink.click()
-                break
+                case aboutPageUrl:
+                  menuLink.click()
+                  break
+                case donaldMenuPageUrl:
+                  homeLink.click()
+                  break
 
-              default:
-                break
-            }
-            break
-          default:
-            break
+                default:
+                  break
+              }
+              break
+            default:
+              break
+          }
         }
       }}
       onwheel={debounce((e) => {
         e.preventDefault()
+        if (state.showGraph === false) {
+          const direction = e.deltaY
+          const aboutLink = document.querySelector(`nav a[href='${aboutPageUrl}']`)
+          const homeLink = document.querySelector(`nav a[href='${homePageUrl}']`)
+          const menuLink = document.querySelector(`nav a[href='${donaldMenuPageUrl}']`)
+          switch (state.location.pathname) {
+            case homePageUrl:
+              direction > 0 ? aboutLink.click() : menuLink.click()
+              break
 
-        const direction = e.deltaY
-        const aboutLink = document.querySelector(`nav a[href='${aboutPageUrl}']`)
-        const homeLink = document.querySelector(`nav a[href='${homePageUrl}']`)
-        const menuLink = document.querySelector(`nav a[href='${donaldMenuPageUrl}']`)
-        switch (state.location.pathname) {
-          case homePageUrl:
-            direction > 0 ? aboutLink.click() : menuLink.click()
-            break
+            case aboutPageUrl:
+              direction > 0 ? menuLink.click() : homeLink.click()
+              break
+            case donaldMenuPageUrl:
+              direction > 0 ? homeLink.click() : aboutLink.click()
+              break
 
-          case aboutPageUrl:
-            direction > 0 ? menuLink.click() : homeLink.click()
-            break
-          case donaldMenuPageUrl:
-            direction > 0 ? homeLink.click() : aboutLink.click()
-            break
-
-          default:
-            break
+            default:
+              break
+          }
         }
       }, 150)}
       class={cxs({
