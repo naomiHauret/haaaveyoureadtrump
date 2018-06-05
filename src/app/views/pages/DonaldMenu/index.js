@@ -36,6 +36,7 @@ export default () => (state, actions) => {
             })}
           >
             <button
+              data-toggle="graph"
               onclick={actions.toggleGraph}
               class={cxs({
                 display: "inline-flex",
@@ -152,6 +153,7 @@ export default () => (state, actions) => {
                     unfoldBurger={state.unfoldBurger}
                     currentBurger={state.currentBurger}
                     isSelectSliceView={false}
+                    addedSlice={state.addedSlice}
                     isCustom={true}
                     actions={actions}
                     state={state}

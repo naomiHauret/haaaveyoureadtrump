@@ -21,6 +21,7 @@ export default (props, children) => {
           const aboutLink = document.querySelector(`nav a[href='${aboutPageUrl}']`)
           const homeLink = document.querySelector(`nav a[href='${homePageUrl}']`)
           const menuLink = document.querySelector(`nav a[href='${donaldMenuPageUrl}']`)
+          let toggleGraph
           switch (e.key) {
             case "ArrowUp":
               switch (state.location.pathname) {
@@ -56,6 +57,12 @@ export default (props, children) => {
                   break
               }
               break
+            case "ArrowRight":
+              toggleGraph = document.querySelector("[data-toggle='graph']")
+
+              if (state.location.pathname === donaldMenuPageUrl) toggleGraph.click()
+              break
+
             default:
               break
           }

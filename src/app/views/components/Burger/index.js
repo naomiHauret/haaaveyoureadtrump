@@ -5,11 +5,13 @@ import cxs from "cxs"
 import Slice from "app/views/components/Burger/Slice"
 
 export default (props) => {
-  const { unfoldBurger, currentBurger, actions, isSelectSliceView, isCustom, key } = props
+  const { unfoldBurger, currentBurger, actions, isSelectSliceView, isCustom, key, addedSlice } = props
   const PRESIDENTIAL_ELECTIONS = {
     sliceWrapperStyle: cxs({
       transform: "translateX(50%)",
       marginBottom: "-20px",
+      animationName: isCustom === true ? "floatFlagSlice !important" : "",
+      animationDuration: isCustom === true ? "1950ms" : "",
       "> img": {
         transform:
           isSelectSliceView === true || (isCustom === true && currentBurger.length < 13)
@@ -31,6 +33,7 @@ export default (props) => {
     sliceWrapperStyle: cxs({
       zIndex: 15,
       marginTop: "-15px",
+      animationDuration: isCustom === true ? "1805ms" : "",
       "> img": {
         transform: unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-5deg)",
       },
@@ -47,6 +50,7 @@ export default (props) => {
     sliceWrapperStyle: cxs({
       transform: "translateX(5.5%)",
       marginTop: "-35px",
+      animationDuration: isCustom === true ? "2425ms" : "",
       zIndex: 10,
     }),
     sliceTextStyle: cxs({
@@ -60,6 +64,7 @@ export default (props) => {
   const GOVERNMENT = {
     sliceWrapperStyle: cxs({
       transform: "translateX(5.5%)",
+      animationDuration: isCustom === true ? "2350ms" : "",
       marginTop: "-42px",
       zIndex: 9,
       "> img": {
@@ -77,6 +82,7 @@ export default (props) => {
   const DRAIN_THE_SWAMP = {
     sliceWrapperStyle: cxs({
       transform: "translateX(9.5%)",
+      animationDuration: isCustom === true ? "2625ms" : "",
       marginTop: "-45px",
       zIndex: 8,
       "> img": {
@@ -95,6 +101,7 @@ export default (props) => {
     sliceWrapperStyle: cxs({
       marginTop: "-50px",
       transform: "translateX(3.5%)",
+      animationDuration: isCustom === true ? "2475ms" : "",
       zIndex: 7,
     }),
     sliceTextStyle: cxs({
@@ -108,6 +115,7 @@ export default (props) => {
   const ME = {
     sliceWrapperStyle: cxs({
       marginTop: "-60px",
+      animationDuration: isCustom === true ? "2565ms" : "",
       zIndex: 6,
       "> img": {
         transform: unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-1deg)",
@@ -124,6 +132,7 @@ export default (props) => {
   const OTHER = {
     sliceWrapperStyle: cxs({
       marginTop: "-45px",
+      animationDuration: isCustom === true ? "2650ms" : "",
       zIndex: 5,
       transform: "translateX(4.5%)",
       "> img": {
@@ -141,6 +150,7 @@ export default (props) => {
   const ARMY = {
     sliceWrapperStyle: cxs({
       marginTop: "-65px",
+      animationDuration: isCustom === true ? "2450ms" : "",
       zIndex: 4,
       "> img": {
         transform: unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-2deg)",
@@ -157,6 +167,7 @@ export default (props) => {
   const COMPANY = {
     sliceWrapperStyle: cxs({
       marginTop: "-45px",
+      animationDuration: isCustom === true ? "2250ms" : "",
       zIndex: 3,
       transform: "translateX(0.5%)",
       "> img": {
@@ -173,6 +184,7 @@ export default (props) => {
 
   const FAMILY = {
     sliceWrapperStyle: cxs({
+      animationDuration: isCustom === true ? "1950ms" : "",
       marginTop: "-28px",
       zIndex: 2,
       transform: "translateX(9.5%)",
@@ -190,6 +202,7 @@ export default (props) => {
 
   const WORLD_NEWS = {
     sliceWrapperStyle: cxs({
+      animationDuration: isCustom === true ? "2055ms" : "",
       transform: "translateX(-3.5%)",
       marginTop: "-70px",
       zIndex: 1,
@@ -207,6 +220,7 @@ export default (props) => {
 
   const MAGA = {
     sliceWrapperStyle: cxs({
+      animationDuration: isCustom === true ? "2175ms" : "",
       marginTop: "-75px",
       zIndex: 0,
       "> img": {
@@ -281,6 +295,18 @@ export default (props) => {
         "> div": {
           transition: "all 550ms ease-in-out",
           position: "relative",
+          animationName: isCustom === true ? "floatBurgerSlice" : "",
+          animationIterationCount: isCustom === true ? "infinite" : "",
+          animationTimingFunction: isCustom === true ? "ease-in-out" : "",
+          ":nth-child(odd)": {
+            animationDirection: isCustom === true ? "alternate" : "",
+          },
+          ":nth-child(even)": {
+            animationDirection: isCustom === true ? "alternate-reverse" : "",
+          },
+          ":hover": {
+            animationPlayState: isCustom === true ? "paused" : "",
+          },
           ":not(:first-child)": {
             paddingTop:
               isSelectSliceView === true
@@ -311,13 +337,18 @@ export default (props) => {
               animation:
                 isSelectSliceView === false ? "shakeBurgerSlice 1550ms ease-in-out infinite alternate" : "none",
               "~ div": {
-                opacity: 1,
+                opacity: "1 !important",
               },
             },
           },
         },
       })}
-      onmouseenter={() => isSelectSliceView === false && actions.toggleUnfoldBurger({ value: true })}
+      onmouseenter={() =>
+        isSelectSliceView === false &&
+        actions.toggleUnfoldBurger({
+          value: true,
+        })
+      }
       onmouseleave={() => isSelectSliceView === false && actions.toggleUnfoldBurger({ value: false })}
     >
       {isSelectSliceView === false &&
@@ -345,6 +376,8 @@ export default (props) => {
           isSelectSliceView={isSelectSliceView}
           isActive={currentBurger.indexOf(slice.name) > -1}
           toggleSlice={actions.toggleSlice}
+          isLastAddedSlice={slice.name === addedSlice}
+          isCustom={isCustom}
         />
       ))}
     </div>

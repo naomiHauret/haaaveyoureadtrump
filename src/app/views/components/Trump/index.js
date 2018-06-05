@@ -11,7 +11,7 @@ let mouthAnimation
 let eyesAnimation
 let cheeksAnimation
 
-export default ({ showParagraph }) => (
+export default ({ showParagraph, paragraph }) => (
   <div
     oncreate={() => {
       tieAnimation = lottie.loadAnimation({
@@ -79,6 +79,89 @@ export default ({ showParagraph }) => (
         },
       })}
     >
+      <svg
+        class={cxs({
+          position: "absolute",
+          zIndex: 2,
+          top: "-10px",
+          left: "190px",
+          pointerEvents: "none",
+          transition: "all 450ms ease-in-out",
+          width: paragraph === "hair" ? "100%" : 0,
+        })}
+        xmlns="http://www.w3.org/2000/svg"
+        xlink="http://www.w3.org/1999/xlink"
+        width="165"
+        height="104"
+      >
+        <image
+          width="165"
+          height="104"
+          href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKUAAABoCAQAAAA6VPg7AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfiBgILDDFDL43VAAABnUlEQVR42u3dsWrCUABG4T9BfIB26qhQF/tKnbq71U4uHe1Sx0I336iIk7h2MmvHdJGCazxwueV8EIjbz+FyHdP00TDTJBnnLY9JtnkelR5UuXUWSZJFfhpP5VDTJDnl5vyza0sP+j9MeZ3t39und+V1lmnOfzuri7tyWnpYrfo0iacScYx3JciUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkxJcaUGFNiTIkZ+UVRiqcS02acTbp02WRcekzd2qwzyzzzzPJaekzdmskpD/lOcpddbkvPqVR/vPgSc39+NFAzec99njLKR3Z5OZbeU7E2yxyyz1cOWZUeU7dfXF0jw01p2pMAAAAASUVORK5CYII="
+        />
+      </svg>
+      <svg
+        class={cxs({
+          position: "absolute",
+          zIndex: 2,
+          top: "135px",
+          left: "235px",
+          pointerEvents: "none",
+          transition: "all 450ms ease-in-out",
+          width: paragraph === "eyes" ? "100%" : 0,
+        })}
+        xmlns="http://www.w3.org/2000/svg"
+        width="225"
+        height="7"
+      >
+        <image
+          width="225"
+          height="7"
+          href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAAAHCAQAAABUp+JuAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfiBgILEQdz+XRQAAAAoElEQVRIx+3VoU7DUBiG4ecsTT2gkK2YWG+JKTLbqeIww62GyS0NZveFXKbOBcwU0ywE1WBacR51PveaPycUfvuWzF0JudaL4KxZyB1E0UE+dVwy2l7t0YPabuHDUqWytJu6KxltfX9tQhGtXPHsMnVX8g8xE/SgFz2lv3D+Svi0HWaXOfnyKnPUTR2XjPYmWOPsPRS5dhiNW7rC+Sv/7B8OUR1HgDV5nQAAAABJRU5ErkJggg=="
+        />
+      </svg>
+      <svg
+        class={cxs({
+          position: "absolute",
+          zIndex: 2,
+          bottom: "-45px",
+          left: "171px",
+          pointerEvents: "none",
+          transition: "all 450ms ease-in-out",
+          width: paragraph === "tie" ? "100%" : 0,
+        })}
+        xmlns="http://www.w3.org/2000/svg"
+        xlink="http://www.w3.org/1999/xlink"
+        width="310"
+        height="61"
+      >
+        <image
+          width="310"
+          height="61"
+          href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAAA9CAQAAACNBY1VAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfiBgILDTFaNLyUAAABZUlEQVR42u3dIW/CUBhG4dOG4MfUJCTDsL+EmmdqTGEmmRlzS+b4R4RMEewU2MnOIEBNLH1v0p1Htab5xMm9t+pWDVI7RgB9XpgCax57pQdSxy2ZATDju3JlU1tGAAcGp9djXXog/R9n2+io9CzqojUPp6cPz2xq15yKKVe8sTg7s7myqTUN1cU2KrVnD/iDoBhjU4yxKcbYFGNsijE2xRibYoxNMcamGGNTjLEpxtgUY2yKMTbFGJtijE0xxqYYY1OMsSnG2BRjbIoxNsUYm2KMTTHGphhjU4yxKcbYFGNsijE2xRibYoxNMcamGGNTjLEpxtgUY2yKMTbFGJtijE0xxqYYY1OMsSnG2BRjbIrpefGjUlzZFFPTZ8WRIyv6pYdRt9UsGTNhwpjn0sOo26rhgTu+gBu2XJceRx3V7C+u7W4Y0Pzhc9IvquErt9zT450tT/vS86jDaubs+GTDjkXpYdRtP1ebJBLveNuwAAAAAElFTkSuQmCC"
+        />
+      </svg>
+      <svg
+        class={cxs({
+          position: "absolute",
+          zIndex: 2,
+          bottom: "-45px",
+          left: "-184px",
+          pointerEvents: "none",
+          transition: "all 450ms ease-in-out",
+          width: paragraph === "mouth" ? "100%" : 0,
+        })}
+        xmlns="http://www.w3.org/2000/svg"
+        xlink="http://www.w3.org/1999/xlink"
+        width="337"
+        height="140"
+      >
+        <image
+          width="337"
+          height="140"
+          href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVEAAACMCAQAAABvqFKMAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAKqNIzIAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAAHdElNRQfiBgILDiQcxAu8AAACL0lEQVR42u3WoW5VWQBG4f82N30AUEiaVMErofA4CAYzkjGDnGRc32hCRjVYFFhkMU0FJWPPEt+ndo76xco++3Q3KLnatsv9uVfbbvb24uhB8Bsfd70Xe7Hr/XFyi9JytW3f9nJftz3b5/P9Z6VSdLfd36JXdzsdvQYe/LXrvd55f++ztyhF73a7//bvbvfBLUrc+egB8DtfHk5+9MRJlDiJEidR4iRKnESJkyhxEiVOosRJlDiJEidR4iRKnESJkyhxEiVOosRJlDiJEidR4iRKnESJkyhxEiVOosRJlDiJEidR4iRKnESJkyhxEiVOosRJlDiJEidR4iRKnESJkyhxEiVOosRJlDiJEidR4iRKnESJkyhxEiVOosRJlDiJEidR4iRKnESJkyhxEiVOosRJlDiJEidR4iRKnESJkyhxEiVOosRJlDiJEidR4iRKnESJkyhxEiVOosRJlDiJEidR4iRKnESJkyhxEiVOosRJlDiJEidR4iRKnESJkyhxEiVOosRJlDiJEidR4iRKnESJkyhxEiVOosRJlDiJEidR4iRKnESJkyhxEiVOosRJlDiJEidR4iRKnESJkyhxEiVOosRJlDiJEidR4iRKnESJkyhxEiVOosRJlDiJEidR4s5XRy+A/+UWJe5il/u079s+7fLoMfDYeR/3Ztv2Zj/2/ug58KvT8297cn/+vqdfjt4Dv/AWJe5iNw/nf44eA4+d926nvdp2sw9Hj4HHfgLfRiNgxVDq6wAAAABJRU5ErkJggg=="
+        />
+      </svg>
       <img
         src={require("assets/images/content/shadows/trump.svg")} // * 0.78
         class={cxs({

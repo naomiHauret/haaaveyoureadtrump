@@ -67,3 +67,21 @@ body {
     transform: rotate(5deg);
   }
 }
+
+@keyframes floatBurgerSlice {
+  from {
+    transform: translateY(-3px);
+  }
+  to {
+    transform: translateY(3px);
+  }
+}
+
+@keyframes floatFlagSlice {
+  from {
+    transform: translateY(-2px) translateX(50%);
+  }
+  to {
+    transform: translateY(3px) translateX(50%);
+  }
+}

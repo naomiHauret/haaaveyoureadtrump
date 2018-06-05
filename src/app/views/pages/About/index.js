@@ -37,7 +37,9 @@ export default () => (state, actions) => {
             "> p": {
               position: "absolute",
               transition: "all 450ms ease-in-out",
+              transitionDelay: "200ms",
               margin: 0,
+              cursor: "default",
               fontSize: ds.pxTo(ds.get("typo.sizes.legend"), baseFontSize, "rem"),
               lineHeight: ds.pxTo(ds.get("typo.sizes.legend") + 4, baseFontSize, "rem"),
             },
@@ -54,8 +56,8 @@ export default () => (state, actions) => {
               "@media (min-width: 1199px)": {
                 transform:
                   state.aboutVisibleParagraph === "eyes"
-                    ? "translate(calc(100% + 75px), -226%)"
-                    : "translate(calc(100% + 50px), -220%)",
+                    ? "translate(calc(100% + 83px), -226%)"
+                    : "translate(calc(100% + 60px), -220%)",
               },
             })}
           >
@@ -73,7 +75,7 @@ export default () => (state, actions) => {
               "@media (min-width: 1199px)": {
                 transform:
                   state.aboutVisibleParagraph === "tie"
-                    ? "translate(calc(100% + 75px), -15px)"
+                    ? "translate(calc(100% + 103px), -25px)"
                     : "translate(calc(100% + 50px), 5px)",
               },
             })}
@@ -87,7 +89,7 @@ export default () => (state, actions) => {
               bottom: 0,
               transform:
                 state.aboutVisibleParagraph === "mouth"
-                  ? "translate(calc(-50%  + -30px), calc(100% + 40px))"
+                  ? "translate(calc(-50%  + -30px), calc(100% + 60px))"
                   : "translate(calc(-50%  + -10px), calc(100% + 20px))",
               opacity: state.aboutVisibleParagraph === "mouth" ? 1 : 0,
             })}
@@ -113,15 +115,15 @@ export default () => (state, actions) => {
               top: 0,
               transform:
                 state.aboutVisibleParagraph === "hair"
-                  ? "translate(calc(100% + 75px), calc(-100% + -8px))"
-                  : "translate(calc(100% + 95px), calc(-100% + 8px))",
+                  ? "translate(calc(100% + 118px), calc(-100% + -30px))"
+                  : "translate(calc(100% + 75px), calc(-100% + 8px))",
               opacity: state.aboutVisibleParagraph === "hair" ? 1 : 0,
             })}
           >
             Now at the head of a 3.1<br /> billion dollars fortune,<br /> Donald is the 248th richest<br /> man in the
             US, and the<br /> 766th on the world ranking
           </p>
-          <Trump showParagraph={actions.setVisibleAboutParagraph} />
+          <Trump paragraph={state.aboutVisibleParagraph} showParagraph={actions.setVisibleAboutParagraph} />
         </div>
       </div>
       <div class={cxs({ color: ds.get("colors.texts.navigation"), marginBottom: ds.pxTo(65, baseFontSize, "rem") })}>
