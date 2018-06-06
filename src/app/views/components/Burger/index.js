@@ -255,9 +255,7 @@ export default (props) => {
     })
     slices = slices.filter((slice, index) => actualSlicesIndex.indexOf(index) > -1 && slice)
   }
-  return (
-    <div
-      class={cxs({
+  return <div key={key} class={cxs({
         transform:
           isSelectSliceView === true
             ? "scale(0.4)"
@@ -277,6 +275,7 @@ export default (props) => {
             opacity: 0,
           },
           "> div": {
+            animationName: isCustom === true  ? "floatBurgerSlice" : "",
             ":not(:first-child)": {
               paddingTop:
                 currentBurger.length === slicesNames.length && isCustom === false
@@ -295,7 +294,7 @@ export default (props) => {
         "> div": {
           transition: "all 550ms ease-in-out",
           position: "relative",
-          animationName: isCustom === true ? "floatBurgerSlice" : "",
+          animationName: isCustom === true && currentBurger.length < slicesNames.length ? "floatBurgerSlice" : "",
           animationIterationCount: isCustom === true ? "infinite" : "",
           animationTimingFunction: isCustom === true ? "ease-in-out" : "",
           ":nth-child(odd)": {
@@ -342,30 +341,19 @@ export default (props) => {
             },
           },
         },
-      })}
-      onmouseenter={() =>
-        isSelectSliceView === false &&
-        actions.toggleUnfoldBurger({
+      })} onmouseenter={() => isSelectSliceView === false && actions.toggleUnfoldBurger({
           value: true,
-        })
-      }
-      onmouseleave={() => isSelectSliceView === false && actions.toggleUnfoldBurger({ value: false })}
-    >
-      {isSelectSliceView === false &&
-        isCustom === false && (
-          <img
-            src={require("assets/images/content/shadows/burger.svg")}
-            alt=""
-            class={cxs({
-              left: "-30px",
-              position: "absolute",
-              bottom: "30px",
-              width: "220px",
-              height: "235px",
-              transition: "550ms ease-in-out",
-            })}
-          />
-        )}
+        })} onmouseleave={() => isSelectSliceView === false && actions.toggleUnfoldBurger({ value: false })}>
+      {isSelectSliceView === false && isCustom === false && <img src={require("assets/images/content/shadows/burger.svg")} alt="" class={cxs(
+              {
+                left: "-30px",
+                position: "absolute",
+                bottom: "30px",
+                width: "220px",
+                height: "235px",
+                transition: "550ms ease-in-out",
+              },
+            )} />}
       {slices.map((slice) => (
         <Slice
           sliceWrapperStyle={slice.sliceWrapperStyle}
@@ -381,5 +369,4 @@ export default (props) => {
         />
       ))}
     </div>
-  )
 }

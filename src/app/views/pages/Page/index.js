@@ -106,7 +106,7 @@ export default (props, children) => {
               : ds.get("colors.backgrounds.light"),
       })}
     >
-      <Enter easing={"ease-in-out"} time={550} css={{ transform: "translateY(-50%)" }}>
+      <Enter easing={"ease-in-out"} time={550} css={{ transform: state.location.previous === homePageUrl && state.location.pathname === homePageUrl ? "translateY(0)" : "translateY(-50%)" }}>
         <div
           class={cxs({
             flexGrow: 1,

@@ -10,6 +10,7 @@ const WebappPlugin = require("webapp-webpack-plugin")
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin")
 const ImageminPlugin = require("imagemin-webpack-plugin").default
 const CompressionPlugin = require("brotli-webpack-plugin")
+
 const exludedFolders = [path.join(__dirname, "node_modules")]
 
 const Social = new SocialTagsPlugin({

@@ -1,5 +1,6 @@
 import { h } from "hyperapp"
 import cxs from "cxs"
+import anime from "animejs"
 
 export default (props) => {
   const {
@@ -25,16 +26,34 @@ export default (props) => {
             width: "80% !important",
           },
         })}
+        oncreate={(e) => isCustom === true && isLastAddedSlice === true && anime({
+          targets: e,
+          scale: 1.25,
+          duration: "75ms",
+          direction: 'alternate',
+          elasticity:  (el, i, l) => {
+            return (200 + i * 200);
+          }
+        })}
+        onclick={(e) => isCustom === true && anime({
+          targets: e,
+          scale: 0,
+          duration: "75ms",
+          direction: 'alternate',
+          elasticity:  (el, i, l) => {
+            return (200 + i * 200);
+          }
+        })}
       />
       {isSelectSliceView === false && (
-        <div class={sliceTextStyle} style={{ opacity: isCustom === true && isLastAddedSlice === true ? 1 : 0 }}>
+        <div class={sliceTextStyle} >
           <svg
             class={cxs({
               position: "absolute",
               left: 0,
               transform: "translateX(calc(-100% - 20px))",
               top: "7px",
-              width: isCustom === true && isLastAddedSlice === true ? "80%" : 0,
+              width: 0,
               transition: "125ms width ease-in-out",
               transitionDelay: "200ms",
             })}

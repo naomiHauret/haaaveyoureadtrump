@@ -6,6 +6,7 @@ import ScrollIcon from "app/views/components/ScrollIcon"
 import { ds } from "assets/styles/theme"
 import cxs from "cxs"
 import { aboutMetaTitle, donaldMenuPageUrl } from "app/routes"
+import { Enter } from "@hyperapp/transitions"
 
 const baseFontSize = ds.get("typo.sizes.base")
 
@@ -25,9 +26,13 @@ export default () => (state, actions) => {
         })}
       >
         <div class={cxs({ alignSelf: "flex-start", marginBottom: ds.pxTo(35, baseFontSize, "rem") })}>
+          <Enter time={650} easing="ease-in-out" css={{
+            transform: "translateY(-600px)",
+          }}>
           <Heading level={1} brand="dark">
             Meet<br />Donald
           </Heading>
+          </Enter>
         </div>
         <div
           class={cxs({
@@ -123,12 +128,30 @@ export default () => (state, actions) => {
             Now at the head of a 3.1<br /> billion dollars fortune,<br /> Donald is the 248th richest<br /> man in the
             US, and the<br /> 766th on the world ranking
           </p>
-          <Trump paragraph={state.aboutVisibleParagraph} showParagraph={actions.setVisibleAboutParagraph} />
+          <div class={cxs({
+            perspective: "1000px"
+          })}>
+
+            <Enter time={450} delay={385} easing="ease-in-out" css={{
+                opacity: 0,
+                transform: " rotateX(99deg)",
+                transformStyle: "preserve-3d",
+                transformOrigin: "0 100%",
+            }}>
+              <Trump paragraph={state.aboutVisibleParagraph} showParagraph={actions.setVisibleAboutParagraph} />
+            </Enter>
+          </div>
+
         </div>
       </div>
+      <Enter time={450} delay={455} easing="ease-in-out" css={{
+        transform: "translateY(-50px)",
+        opacity: 0,
+      }}>
       <div class={cxs({ color: ds.get("colors.texts.navigation"), marginBottom: ds.pxTo(65, baseFontSize, "rem") })}>
         <ScrollIcon next={donaldMenuPageUrl} />
       </div>
+      </Enter>
     </Page>
   )
 }

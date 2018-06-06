@@ -8,7 +8,7 @@ import { donaldMenuMetaTitle } from "app/routes"
 import Burger from "app/views/components/Burger"
 import data from "assets/data/data.csv"
 import anime from "animejs"
-
+import { Enter } from "@hyperapp/transitions"
 const baseFontSize = ds.get("typo.sizes.base")
 
 export default () => (state, actions) => {
@@ -71,11 +71,15 @@ export default () => (state, actions) => {
             </button>
           </div>
         )}
+          <Enter time={650} easing="ease-in-out" css={{
+            transform: "translateY(-600px)",
+          }}>
         <div class={cxs({ zIndex: 2 })}>
           <Heading level={1} brand={state.showGraph === true ? "light" : "dark"} margin={0}>
             The<br />Donald's menu
           </Heading>
         </div>
+          </Enter>
         <div
           class={cxs({
             display: "flex",
@@ -101,29 +105,39 @@ export default () => (state, actions) => {
               })}
             >
               {state.currentBurger.length > 0 && (
-                <Burger
-                  key="selectsliceburger"
-                  isSelectSliceView={true}
-                  isCustom={false}
-                  actions={actions}
-                  unfoldBurger={state.unfoldBurger}
-                  currentBurger={state.currentBurger}
-                />
+                <Enter time={550}  easing="ease-in-out" css={{
+                  transform: "translateY(50px) scale(1.25)",
+                  opacity: 0
+                }}>
+                <div>
+                  <Burger
+                    key="selectsliceburger"
+                    isSelectSliceView={true}
+                    isCustom={false}
+                    actions={actions}
+                    unfoldBurger={state.unfoldBurger}
+                    currentBurger={state.currentBurger}
+                  />
+                </div>
+                </Enter>
               )}
               {state.currentBurger.length === 0 && (
-                <p>
-                  Reading Donald Trump is a real<br />
-                  feast! See how is composed the<br />
-                  most american menu possible by<br />
-                  clicking on the ingredients.
-                </p>
-              )}
-              {state.currentBurger.length === 0 && (
-                <p>
-                  Add some #MAGA over here, some<br />
-                  #DrainTheSwamp over there and<br />
-                  create your own Donald burger!
-                </p>
+                <Enter time={450} delay={355} easing="ease-in-out" css={{
+                  transform: "translateY(20px)",
+                  opacity: 0,
+                }}>
+                  <p>
+                    Reading Donald Trump is a real<br />
+                    feast! See how is composed the<br />
+                    most american menu possible by<br />
+                    clicking on the ingredients.
+                  </p>
+                  <p>
+                    Add some #MAGA over here, some<br />
+                    #DrainTheSwamp over there and<br />
+                    create your own Donald burger!
+                  </p>
+                </Enter>
               )}
             </div>
           )}
@@ -148,6 +162,12 @@ export default () => (state, actions) => {
             >
               {state.currentBurger.length > 0 &&
                 state.showGraph === false && (
+                <Enter time={550} delay={65} easing="ease-in-out" css={{
+                  transform: "scale(0)",
+                  opacity: 0
+                }}>
+                <div>
+
                   <Burger
                     key="customburger"
                     unfoldBurger={state.unfoldBurger}
@@ -158,9 +178,14 @@ export default () => (state, actions) => {
                     actions={actions}
                     state={state}
                   />
+                </div>
+                  </Enter>
                 )}
               {state.currentBurger.length === 0 &&
                 state.showGraph === false && (
+                <Enter time={350} delay={525} easing="ease-in-out" css={{
+                  opacity: 0,
+                }}>
                   <Burger
                     key="helloburger"
                     unfoldBurger={state.unfoldBurger}
@@ -170,7 +195,9 @@ export default () => (state, actions) => {
                     actions={actions}
                     state={state}
                   />
+                  </Enter>
                 )}
+
               {state.currentBurger.length > 0 &&
                 state.showGraph === true && (
                   <TweetChart
