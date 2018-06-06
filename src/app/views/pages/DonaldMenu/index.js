@@ -71,15 +71,19 @@ export default () => (state, actions) => {
             </button>
           </div>
         )}
-          <Enter time={650} easing="ease-in-out" css={{
+        <Enter
+          time={650}
+          easing="ease-in-out"
+          css={{
             transform: "translateY(-600px)",
-          }}>
-        <div class={cxs({ zIndex: 2 })}>
-          <Heading level={1} brand={state.showGraph === true ? "light" : "dark"} margin={0}>
-            The<br />Donald's menu
-          </Heading>
-        </div>
-          </Enter>
+          }}
+        >
+          <div class={cxs({ zIndex: 2 })}>
+            <Heading level={1} brand={state.showGraph === true ? "light" : "dark"} margin={0}>
+              The<br />Donald's menu
+            </Heading>
+          </div>
+        </Enter>
         <div
           class={cxs({
             display: "flex",
@@ -105,27 +109,36 @@ export default () => (state, actions) => {
               })}
             >
               {state.currentBurger.length > 0 && (
-                <Enter time={550}  easing="ease-in-out" css={{
-                  transform: "translateY(50px) scale(1.25)",
-                  opacity: 0
-                }}>
-                <div>
-                  <Burger
-                    key="selectsliceburger"
-                    isSelectSliceView={true}
-                    isCustom={false}
-                    actions={actions}
-                    unfoldBurger={state.unfoldBurger}
-                    currentBurger={state.currentBurger}
-                  />
-                </div>
+                <Enter
+                  time={550}
+                  easing="ease-in-out"
+                  css={{
+                    transform: "translateY(50px) scale(1.25)",
+                    opacity: 0,
+                  }}
+                >
+                  <div>
+                    <Burger
+                      key="selectsliceburger"
+                      isSelectSliceView={true}
+                      isCustom={false}
+                      actions={actions}
+                      unfoldBurger={state.unfoldBurger}
+                      currentBurger={state.currentBurger}
+                    />
+                  </div>
                 </Enter>
               )}
               {state.currentBurger.length === 0 && (
-                <Enter time={450} delay={355} easing="ease-in-out" css={{
-                  transform: "translateY(20px)",
-                  opacity: 0,
-                }}>
+                <Enter
+                  time={450}
+                  delay={355}
+                  easing="ease-in-out"
+                  css={{
+                    transform: "translateY(20px)",
+                    opacity: 0,
+                  }}
+                >
                   <p>
                     Reading Donald Trump is a real<br />
                     feast! See how is composed the<br />
@@ -162,39 +175,48 @@ export default () => (state, actions) => {
             >
               {state.currentBurger.length > 0 &&
                 state.showGraph === false && (
-                <Enter time={550} delay={65} easing="ease-in-out" css={{
-                  transform: "scale(0)",
-                  opacity: 0
-                }}>
-                <div>
-
-                  <Burger
-                    key="customburger"
-                    unfoldBurger={state.unfoldBurger}
-                    currentBurger={state.currentBurger}
-                    isSelectSliceView={false}
-                    addedSlice={state.addedSlice}
-                    isCustom={true}
-                    actions={actions}
-                    state={state}
-                  />
-                </div>
+                  <Enter
+                    time={550}
+                    delay={65}
+                    easing="ease-in-out"
+                    css={{
+                      transform: "scale(0)",
+                      opacity: 0,
+                    }}
+                  >
+                    <div>
+                      <Burger
+                        key="customburger"
+                        unfoldBurger={state.unfoldBurger}
+                        currentBurger={state.currentBurger}
+                        isSelectSliceView={false}
+                        addedSlice={state.addedSlice}
+                        isCustom={true}
+                        actions={actions}
+                        state={state}
+                      />
+                    </div>
                   </Enter>
                 )}
               {state.currentBurger.length === 0 &&
                 state.showGraph === false && (
-                <Enter time={350} delay={525} easing="ease-in-out" css={{
-                  opacity: 0,
-                }}>
-                  <Burger
-                    key="helloburger"
-                    unfoldBurger={state.unfoldBurger}
-                    currentBurger={state.currentBurger}
-                    isSelectSliceView={false}
-                    isCustom={false}
-                    actions={actions}
-                    state={state}
-                  />
+                  <Enter
+                    time={350}
+                    delay={525}
+                    easing="ease-in-out"
+                    css={{
+                      opacity: 0,
+                    }}
+                  >
+                    <Burger
+                      key="helloburger"
+                      unfoldBurger={state.unfoldBurger}
+                      currentBurger={state.currentBurger}
+                      isSelectSliceView={false}
+                      isCustom={false}
+                      actions={actions}
+                      state={state}
+                    />
                   </Enter>
                 )}
 

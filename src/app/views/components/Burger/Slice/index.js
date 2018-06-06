@@ -26,27 +26,34 @@ export default (props) => {
             width: "80% !important",
           },
         })}
-        oncreate={(e) => isCustom === true && isLastAddedSlice === true && anime({
-          targets: e,
-          scale: 1.25,
-          duration: "75ms",
-          direction: 'alternate',
-          elasticity:  (el, i, l) => {
-            return (200 + i * 200);
-          }
-        })}
-        onclick={(e) => isCustom === true && anime({
-          targets: e,
-          scale: 0,
-          duration: "75ms",
-          direction: 'alternate',
-          elasticity:  (el, i, l) => {
-            return (200 + i * 200);
-          }
-        })}
+        oncreate={(e) =>
+          isCustom === true &&
+          isLastAddedSlice === true &&
+          anime({
+            targets: e,
+            scale: 1.25,
+            duration: "75ms",
+            direction: "alternate",
+            elasticity: (el, i, l) => {
+              return 200 + i * 200
+            },
+          })
+        }
+        onclick={(e) =>
+          isCustom === true &&
+          anime({
+            targets: e,
+            scale: 0,
+            duration: "75ms",
+            direction: "alternate",
+            elasticity: (el, i, l) => {
+              return 200 + i * 200
+            },
+          })
+        }
       />
       {isSelectSliceView === false && (
-        <div class={sliceTextStyle} >
+        <div class={sliceTextStyle}>
           <svg
             class={cxs({
               position: "absolute",
