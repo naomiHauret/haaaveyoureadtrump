@@ -11,7 +11,7 @@ const baseFontSize = ds.get("typo.sizes.base")
 export default (props, children) => {
   const { state, key } = props
   return (
-    <div
+    <main
       tabindex="0"
       autofocus
       key="americanPage"
@@ -108,6 +108,7 @@ export default (props, children) => {
       oncreate={(e) => e.focus()}
       onupdate={(e) => e.focus()}
     >
+      <Navigation location={state.location} showGraph={state.showGraph} />
       <Enter
         easing={"ease-in-out"}
         time={550}
@@ -165,7 +166,6 @@ export default (props, children) => {
           </div>
         </div>
       </Enter>
-      <Navigation location={state.location} showGraph={state.showGraph} />
-    </div>
+    </main>
   )
 }

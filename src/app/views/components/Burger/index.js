@@ -12,6 +12,7 @@ export default (props) => {
       marginBottom: "-20px",
       animationName: isCustom === true ? "floatFlagSlice !important" : "",
       animationDuration: isCustom === true ? "1950ms" : "",
+      animationDelay: "50ms",
       "> img": {
         transform:
           isSelectSliceView === true || (isCustom === true && currentBurger.length < 13)
@@ -34,6 +35,8 @@ export default (props) => {
       zIndex: 15,
       marginTop: "-15px",
       animationDuration: isCustom === true ? "1805ms" : "",
+      animationDelay: "75ms",
+
       "> img": {
         transform: unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-5deg)",
       },
@@ -51,6 +54,7 @@ export default (props) => {
       transform: "translateX(5.5%)",
       marginTop: "-35px",
       animationDuration: isCustom === true ? "2425ms" : "",
+      animationDelay: "125ms",
       zIndex: 10,
     }),
     sliceTextStyle: cxs({
@@ -82,6 +86,7 @@ export default (props) => {
   const DRAIN_THE_SWAMP = {
     sliceWrapperStyle: cxs({
       transform: "translateX(9.5%)",
+      animationDelay: "35ms",
       animationDuration: isCustom === true ? "2625ms" : "",
       marginTop: "-45px",
       zIndex: 8,
@@ -101,6 +106,7 @@ export default (props) => {
     sliceWrapperStyle: cxs({
       marginTop: "-50px",
       transform: "translateX(3.5%)",
+      animationDelay: "115ms",
       animationDuration: isCustom === true ? "2475ms" : "",
       zIndex: 7,
     }),
@@ -115,6 +121,7 @@ export default (props) => {
   const ME = {
     sliceWrapperStyle: cxs({
       marginTop: "-60px",
+      animationDelay: "25ms",
       animationDuration: isCustom === true ? "2565ms" : "",
       zIndex: 6,
       "> img": {
@@ -135,6 +142,7 @@ export default (props) => {
       animationDuration: isCustom === true ? "2650ms" : "",
       zIndex: 5,
       transform: "translateX(4.5%)",
+      animationDelay: "85ms",
       "> img": {
         transform: unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(3deg)",
       },
@@ -151,6 +159,7 @@ export default (props) => {
     sliceWrapperStyle: cxs({
       marginTop: "-65px",
       animationDuration: isCustom === true ? "2450ms" : "",
+      animationDelay: "135ms",
       zIndex: 4,
       "> img": {
         transform: unfoldBurger === false && isSelectSliceView === false ? "rotate(0)" : "rotate(-2deg)",
@@ -168,6 +177,7 @@ export default (props) => {
     sliceWrapperStyle: cxs({
       marginTop: "-45px",
       animationDuration: isCustom === true ? "2250ms" : "",
+      animationDelay: "45ms",
       zIndex: 3,
       transform: "translateX(0.5%)",
       "> img": {
@@ -204,6 +214,7 @@ export default (props) => {
     sliceWrapperStyle: cxs({
       animationDuration: isCustom === true ? "2055ms" : "",
       transform: "translateX(-3.5%)",
+      animationDelay: "85ms",
       marginTop: "-70px",
       zIndex: 1,
     }),
