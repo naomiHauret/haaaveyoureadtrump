@@ -105,6 +105,8 @@ export default (props, children) => {
               ? "transparent"
               : ds.get("colors.backgrounds.light"),
       })}
+      oncreate={(e) => e.focus()}
+      onupdate={(e) => e.focus()}
     >
       <Enter
         easing={"ease-in-out"}

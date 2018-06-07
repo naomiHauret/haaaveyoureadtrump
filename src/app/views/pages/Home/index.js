@@ -29,7 +29,6 @@ export default () => (state, actions) => {
             width: "50%",
           },
         })}
-        oncreate={actions.showHomeTextTriggered}
       >
         <Enter css={{ transform: "translateY(15px)", opacity: 0 }} delay={750} easing="ease-in-out" time={450}>
           <Heading brand="light" level={1} margin={`0 0 ${ds.pxTo(40, baseFontSize, "rem")}`}>
