@@ -71,16 +71,33 @@ export default () => (state, actions) => {
             </button>
           </div>
         )}
-        <Enter
-          time={650}
-          easing="ease-in-out"
-          css={{
-            transform: "translateY(-600px)",
-          }}
-        >
-          <div class={cxs({ zIndex: 2 })}>
+        <Enter time={650} easing="ease-in-out" css={{ transform: "translateY(-600px)" }}>
+          <div
+            class={cxs({
+              zIndex: 2,
+            })}
+          >
             <Heading level={1} brand={state.showGraph === true ? "light" : "dark"} margin={0}>
-              The<br />Donald's menu
+              {state.currentBurger.length < 0 ? (
+                <span>
+                  The <br /> Donald's menu
+                </span>
+              ) : (
+                <span
+                  class={cxs({
+                    "-webkit-text-fill-color": "transparent",
+                    "-webkit-background-clip": "text",
+                    backgroundImage: `linear-gradient( to right, ${ds.get("colors.texts.headings.light")}, ${ds.get(
+                      "colors.texts.headings.light",
+                    )} 50%, ${ds.get("colors.texts.headings.dark")} 50%)`,
+                    backgroundSize: "200%",
+                    backgroundPosition: state.showGraph === true ? "200%" : "100%",
+                    transition: "all 405ms ease-in-out",
+                  })}
+                >
+                  The <br /> Donald's menu
+                </span>
+              )}
             </Heading>
           </div>
         </Enter>
@@ -109,14 +126,7 @@ export default () => (state, actions) => {
               })}
             >
               {state.currentBurger.length > 0 && (
-                <Enter
-                  time={550}
-                  easing="ease-in-out"
-                  css={{
-                    transform: "translateY(50px) scale(1.25)",
-                    opacity: 0,
-                  }}
-                >
+                <Enter time={550} easing="ease-in-out" css={{ transform: "translateY(50px) scale(1.25)", opacity: 0 }}>
                   <div>
                     <Burger
                       key="selectsliceburger"
@@ -130,15 +140,7 @@ export default () => (state, actions) => {
                 </Enter>
               )}
               {state.currentBurger.length === 0 && (
-                <Enter
-                  time={450}
-                  delay={355}
-                  easing="ease-in-out"
-                  css={{
-                    transform: "translateY(20px)",
-                    opacity: 0,
-                  }}
-                >
+                <Enter time={450} delay={355} easing="ease-in-out" css={{ transform: "translateY(20px)", opacity: 0 }}>
                   <p>
                     Reading Donald Trump is a real<br />
                     feast! See how is composed the<br />
@@ -175,15 +177,7 @@ export default () => (state, actions) => {
             >
               {state.currentBurger.length > 0 &&
                 state.showGraph === false && (
-                  <Enter
-                    time={550}
-                    delay={65}
-                    easing="ease-in-out"
-                    css={{
-                      transform: "scale(0)",
-                      opacity: 0,
-                    }}
-                  >
+                  <Enter time={550} delay={65} easing="ease-in-out" css={{ transform: "scale(0)", opacity: 0 }}>
                     <div>
                       <Burger
                         key="customburger"
@@ -200,14 +194,7 @@ export default () => (state, actions) => {
                 )}
               {state.currentBurger.length === 0 &&
                 state.showGraph === false && (
-                  <Enter
-                    time={350}
-                    delay={525}
-                    easing="ease-in-out"
-                    css={{
-                      opacity: 0,
-                    }}
-                  >
+                  <Enter time={350} delay={525} easing="ease-in-out" css={{ opacity: 0 }}>
                     <Burger
                       key="helloburger"
                       unfoldBurger={state.unfoldBurger}
@@ -256,6 +243,7 @@ export default () => (state, actions) => {
                       state.showGraph === false
                         ? ds.get("colors.texts.legends.colorful")
                         : ds.get("colors.texts.legends.light"),
+                    transition: "all 405ms ease-in-out",
                   })}
                 >
                   <div
