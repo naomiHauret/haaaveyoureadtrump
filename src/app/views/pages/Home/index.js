@@ -33,13 +33,13 @@ export default () => (state, actions) => {
         <Heading brand="light" level={1} margin="0 0 0 0">
           <div
             class={cxs({
-              fontSize: ds.pxTo(150, baseFontSize, "rem"),
+              fontSize: ds.pxTo(125, baseFontSize, "rem"),
             })}
             oncreate={(e) =>
               anime({
                 targets: e,
                 fontSize: [
-                  ds.pxTo(150, baseFontSize, "rem"),
+                  ds.pxTo(125, baseFontSize, "rem"),
                   ds.pxTo(ds.get("typo.sizes.headings.h1"), baseFontSize, "rem"),
                 ],
                 opacity: {
@@ -50,7 +50,7 @@ export default () => (state, actions) => {
                 duration: 1050,
                 delay: 3350,
                 easing: "easeInOutBack",
-                width: "80vw",
+                width: "100vw",
               })
             }
           >
@@ -135,7 +135,7 @@ export default () => (state, actions) => {
             "@media (min-height: 800px)": {
               padding: `${ds.pxTo(55, baseFontSize, "rem")} 0 !important`,
             },
-            "@media (min-width: 1440px)": {
+            "@media (min-width: 1200px)": {
               "::before": {
                 content: "' '",
                 position: "absolute",
