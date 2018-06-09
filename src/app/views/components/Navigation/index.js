@@ -2,6 +2,7 @@ import { h } from "hyperapp"
 import { Link } from "@hyperapp/router"
 import { ds } from "assets/styles/theme"
 import cxs from "cxs"
+import { pxTo } from "design-system-utils"
 import { homePageUrl, aboutPageUrl, donaldMenuPageUrl, aboutPageName, donaldMenuPageName } from "app/routes"
 const baseFontSize = ds.get("typo.sizes.base")
 
@@ -10,7 +11,7 @@ export default ({ location, showGraph }) => (
     class={cxs({
       position: "absolute",
       zIndex: location.pathname === homePageUrl || showGraph === true ? -1 : 2,
-      right: ds.pxTo(65, baseFontSize, "rem"),
+      right: pxTo(65, baseFontSize, "rem"),
       top: "50%",
       transform: "translateY(-50%)",
       opacity: location.pathname === homePageUrl ? 0 : 1,
@@ -22,16 +23,16 @@ export default ({ location, showGraph }) => (
         margin: 0,
         padding: 0,
         "> li:not(:last-child)": {
-          marginBottom: ds.pxTo(25, baseFontSize, "rem"),
+          marginBottom: pxTo(25, baseFontSize, "rem"),
         },
         "> li span": {
           display: "none",
         },
         "> li a": {
           display: "block",
-          width: ds.pxTo(10, baseFontSize, "rem"),
-          height: ds.pxTo(10, baseFontSize, "rem"),
-          borderWidth: ds.pxTo(1, baseFontSize, "rem"),
+          width: pxTo(10, baseFontSize, "rem"),
+          height: pxTo(10, baseFontSize, "rem"),
+          borderWidth: pxTo(1, baseFontSize, "rem"),
           borderRadius: "100%",
           borderStyle: "solid",
         },

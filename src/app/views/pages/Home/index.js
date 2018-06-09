@@ -1,6 +1,7 @@
 import { h } from "hyperapp"
 import cxs from "cxs"
 import { ds } from "assets/styles/theme"
+import { pxTo } from "design-system-utils"
 import Page from "app/views/pages/Page"
 import Heading from "app/views/components/Heading"
 import ScrollIcon from "app/views/components/ScrollIcon"
@@ -33,15 +34,12 @@ export default () => (state, actions) => {
         <Heading brand="light" level={1} margin="0 0 0 0">
           <div
             class={cxs({
-              fontSize: ds.pxTo(125, baseFontSize, "rem"),
+              fontSize: pxTo(125, baseFontSize, "rem"),
             })}
             oncreate={(e) =>
               anime({
                 targets: e,
-                fontSize: [
-                  ds.pxTo(125, baseFontSize, "rem"),
-                  ds.pxTo(ds.get("typo.sizes.headings.h1"), baseFontSize, "rem"),
-                ],
+                fontSize: [pxTo(125, baseFontSize, "rem"), pxTo(ds.get("typo.sizes.headings.h1"), baseFontSize, "rem")],
                 opacity: {
                   duration: 2550,
                   value: [0, 1],
@@ -68,7 +66,7 @@ export default () => (state, actions) => {
                 delay: 4250,
                 duration: 550,
                 marginTop: {
-                  value: ds.pxTo(40, baseFontSize, "rem"),
+                  value: pxTo(40, baseFontSize, "rem"),
                   delay: 3750,
                 },
                 height: {
@@ -92,7 +90,7 @@ export default () => (state, actions) => {
               opacity: [0, 1],
               scale: [0, 1],
               height: {
-                value: [0, ds.pxTo(30, baseFontSize, "rem")],
+                value: [0, pxTo(30, baseFontSize, "rem")],
                 delay: 4750,
                 time: 2050,
               },
@@ -133,7 +131,7 @@ export default () => (state, actions) => {
             height: 0,
             padding: "0 !important",
             "@media (min-height: 800px)": {
-              padding: `${ds.pxTo(55, baseFontSize, "rem")} 0 !important`,
+              padding: `${pxTo(55, baseFontSize, "rem")} 0 !important`,
             },
             "@media (min-width: 1200px)": {
               "::before": {
@@ -143,8 +141,8 @@ export default () => (state, actions) => {
                 transform: "translateX(-50%)",
                 display: "block",
                 top: 0,
-                height: ds.pxTo(30, baseFontSize, "rem"),
-                width: ds.pxTo(2, baseFontSize, "rem"),
+                height: pxTo(30, baseFontSize, "rem"),
+                width: pxTo(2, baseFontSize, "rem"),
                 minWidth: "2px",
                 backgroundColor: "currentColor",
               },
@@ -155,8 +153,8 @@ export default () => (state, actions) => {
                 left: "50%",
                 transform: "translateX(-50%)",
                 display: "block",
-                height: ds.pxTo(30, baseFontSize, "rem"),
-                width: ds.pxTo(2, baseFontSize, "rem"),
+                height: pxTo(30, baseFontSize, "rem"),
+                width: pxTo(2, baseFontSize, "rem"),
                 minWidth: "2px",
                 backgroundColor: "currentColor",
               },
@@ -168,7 +166,7 @@ export default () => (state, actions) => {
               opacity: 1,
               height: "45vh",
               maxHeight: "450px",
-              padding: `${ds.pxTo(55, baseFontSize, "rem")} 0`,
+              padding: `${pxTo(55, baseFontSize, "rem")} 0`,
               margin: "11.71875% 0",
               delay: 7500,
               ease: "easeInOutCubic",

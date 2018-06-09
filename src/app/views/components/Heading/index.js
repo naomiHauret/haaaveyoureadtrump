@@ -1,5 +1,6 @@
 import { h } from "hyperapp"
 import { ds } from "assets/styles/theme"
+import { pxTo } from "design-system-utils"
 import cxs from "cxs"
 
 export default (props, children) => {
@@ -12,15 +13,15 @@ export default (props, children) => {
         <h1
           class={cxs({
             color: ds.get(`colors.texts.headings[${brand}]`),
-            fontSize: ds.pxTo(40, baseFontSize, "rem"),
+            fontSize: pxTo(40, baseFontSize, "rem"),
             fontWeight: ds.get("typo.fontWeight.black"),
             fontFamily: ds.get("typo.fontFamily.headings.h1"),
-            lineHeight: ds.pxTo(ds.get("typo.sizes.lineHeight.h1"), baseFontSize, "rem"),
+            lineHeight: pxTo(ds.get("typo.sizes.lineHeight.h1"), baseFontSize, "rem"),
             textTransform: "uppercase",
             margin,
 
             "@media (min-height: 899px)": {
-              fontSize: ds.pxTo(ds.get("typo.sizes.headings.h1"), baseFontSize, "rem"),
+              fontSize: pxTo(ds.get("typo.sizes.headings.h1"), baseFontSize, "rem"),
             },
           })}
         >
@@ -33,10 +34,10 @@ export default (props, children) => {
         <h2
           class={cxs({
             color: ds.get(`colors.texts.headings[${brand}]`),
-            fontSize: ds.pxTo(ds.get("typo.sizes.headings.h2"), baseFontSize, "rem"),
+            fontSize: pxTo(ds.get("typo.sizes.headings.h2"), baseFontSize, "rem"),
             fontWeight: ds.get("typo.fontWeight.light"),
             fontFamily: ds.get("typo.fontFamily.headings.h2"),
-            lineHeight: ds.pxTo(ds.get("typo.sizes.lineHeight.h2"), baseFontSize, "rem"),
+            lineHeight: pxTo(ds.get("typo.sizes.lineHeight.h2"), baseFontSize, "rem"),
             margin,
           })}
         >

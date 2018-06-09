@@ -1,6 +1,7 @@
 import { h } from "hyperapp"
 import { Enter, Exit } from "@hyperapp/transitions"
 import { ds } from "assets/styles/theme"
+import { pxTo } from "design-system-utils"
 import cxs from "cxs"
 import Navigation from "app/views/components/Navigation"
 import Heading from "app/views/components/Heading"
@@ -99,7 +100,7 @@ export default (props, children) => {
           display: "flex",
           fontFamily: ds.get("typo.fontFamily.base"),
           fontWeight: ds.get("typo.fontWeight.normal"),
-          fontSize: ds.pxTo(baseFontSize, baseFontSize, "rem"),
+          fontSize: pxTo(baseFontSize, baseFontSize, "rem"),
           backgroundColor:
             state.location.pathname === homePageUrl
               ? ds.get("colors.backgrounds.dark")
@@ -153,14 +154,14 @@ export default (props, children) => {
                 backgroundRepeat: "no-repeat",
                 backgroundPosition: "center",
                 "@media (min-width: 768px)": {
-                  width: ds.pxTo(ds.get("grid.width.sm"), baseFontSize, "rem"),
+                  width: pxTo(ds.get("grid.width.sm"), baseFontSize, "rem"),
                   margin: "0 auto",
                 },
                 "@media (min-width: 992px)": {
-                  width: ds.pxTo(ds.get("grid.width.md"), baseFontSize, "rem"),
+                  width: pxTo(ds.get("grid.width.md"), baseFontSize, "rem"),
                 },
                 "@media (min-width: 1200px)": {
-                  width: ds.pxTo(ds.get("grid.width.lg"), baseFontSize, "rem"),
+                  width: pxTo(ds.get("grid.width.lg"), baseFontSize, "rem"),
                 },
               })}
             >
@@ -178,7 +179,7 @@ export default (props, children) => {
           display: "flex",
           fontFamily: ds.get("typo.fontFamily.base"),
           fontWeight: ds.get("typo.fontWeight.normal"),
-          fontSize: ds.pxTo(baseFontSize, baseFontSize, "rem"),
+          fontSize: pxTo(baseFontSize, baseFontSize, "rem"),
           backgroundColor: ds.get("colors.backgrounds.dark"),
           color: ds.get("colors.texts.paragraphs.light"),
         })}
@@ -192,27 +193,27 @@ export default (props, children) => {
             justifyContent: "center",
             alignItems: "center",
             width: ds.get("grid.width.xs"),
-            padding: `0 ${ds.pxTo(20, baseFontSize, "rem")}`,
+            padding: `0 ${pxTo(20, baseFontSize, "rem")}`,
             "@media (min-width: 768px)": {
-              width: ds.pxTo(ds.get("grid.width.sm"), baseFontSize, "rem"),
+              width: pxTo(ds.get("grid.width.sm"), baseFontSize, "rem"),
               margin: "0 auto",
             },
             "@media (min-width: 992px)": {
-              width: ds.pxTo(ds.get("grid.width.md"), baseFontSize, "rem"),
+              width: pxTo(ds.get("grid.width.md"), baseFontSize, "rem"),
             },
             "@media (min-width: 1200px)": {
-              width: ds.pxTo(ds.get("grid.width.lg"), baseFontSize, "rem"),
+              width: pxTo(ds.get("grid.width.lg"), baseFontSize, "rem"),
             },
           })}
         >
-          <Heading level={1} brand="light" margin={`0 0 ${ds.pxTo(50, baseFontSize, "rem")} 0`}>
+          <Heading level={1} brand="light" margin={`0 0 ${pxTo(50, baseFontSize, "rem")} 0`}>
             Oh no !
           </Heading>
           <div
             class={cxs({
-              width: ds.pxTo(200, baseFontSize, "rem"),
-              height: ds.pxTo(200, baseFontSize, "rem"),
-              marginBottom: ds.pxTo(30, baseFontSize, "rem"),
+              width: pxTo(200, baseFontSize, "rem"),
+              height: pxTo(200, baseFontSize, "rem"),
+              marginBottom: pxTo(30, baseFontSize, "rem"),
             })}
           >
             <svg

@@ -4,6 +4,7 @@ import Heading from "app/views/components/Heading"
 import TweetChart from "app/views/components/TweetChart"
 import cxs from "cxs"
 import { ds } from "assets/styles/theme"
+import { pxTo } from "design-system-utils"
 import { donaldMenuMetaTitle } from "app/routes"
 import Burger from "app/views/components/Burger"
 import data from "assets/data/dataset.csv"
@@ -120,7 +121,7 @@ export default () => (state, actions) => {
                 "> p": {
                   margin: 0,
                   ":first-child": {
-                    marginBottom: ds.pxTo(35, baseFontSize, "rem"),
+                    marginBottom: pxTo(35, baseFontSize, "rem"),
                   },
                 },
               })}
@@ -168,7 +169,7 @@ export default () => (state, actions) => {
                 top: "50%",
                 transform: "translateY(-50%)",
                 width: state.showGraph === false ? "auto" : "inherit",
-                marginTop: state.showGraph === false ? 0 : ds.pxTo(80, baseFontSize, "rem"),
+                marginTop: state.showGraph === false ? 0 : pxTo(80, baseFontSize, "rem"),
                 zIndex: 2,
                 ":hover": {
                   transform: "translateY(calc(-50 % + 100px))",
@@ -250,7 +251,7 @@ export default () => (state, actions) => {
                     class={cxs({
                       fontWeight: ds.get("typo.fontWeight.normal"),
                       fontFamily: ds.get("typo.fontFamily.burgerData.percentage"),
-                      marginBottom: ds.pxTo(12.5, baseFontSize, "rem"),
+                      marginBottom: pxTo(12.5, baseFontSize, "rem"),
                     })}
                     oncreate={(e) =>
                       anime({
@@ -276,13 +277,13 @@ export default () => (state, actions) => {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
-                      marginBottom: ds.pxTo(12.5, baseFontSize, "rem"),
+                      marginBottom: pxTo(12.5, baseFontSize, "rem"),
                     })}
                   >
                     <div
                       class={cxs({
-                        width: ds.pxTo(25, baseFontSize, "rem"),
-                        marginRight: ds.pxTo(10, baseFontSize, "rem"),
+                        width: pxTo(25, baseFontSize, "rem"),
+                        marginRight: pxTo(10, baseFontSize, "rem"),
                       })}
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 87.5 61.5" fill="currentColor">
@@ -323,8 +324,8 @@ export default () => (state, actions) => {
                   >
                     <div
                       class={cxs({
-                        width: ds.pxTo(25, baseFontSize, "rem"),
-                        marginRight: ds.pxTo(10, baseFontSize, "rem"),
+                        width: pxTo(25, baseFontSize, "rem"),
+                        marginRight: pxTo(10, baseFontSize, "rem"),
                       })}
                     >
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 89.5 78" fill="currentColor">

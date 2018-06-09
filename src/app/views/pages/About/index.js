@@ -4,6 +4,7 @@ import Heading from "app/views/components/Heading"
 import Trump from "app/views/components/Trump"
 import ScrollIcon from "app/views/components/ScrollIcon"
 import { ds } from "assets/styles/theme"
+import { pxTo } from "design-system-utils"
 import cxs from "cxs"
 import { aboutMetaTitle, donaldMenuPageUrl } from "app/routes"
 import { Enter } from "@hyperapp/transitions"
@@ -25,7 +26,7 @@ export default () => (state, actions) => {
           alignItems: "center",
         })}
       >
-        <div class={cxs({ alignSelf: "flex-start", marginBottom: ds.pxTo(35, baseFontSize, "rem") })}>
+        <div class={cxs({ alignSelf: "flex-start", marginBottom: pxTo(35, baseFontSize, "rem") })}>
           <Enter time={650} easing="ease-in-out" css={{ transform: "translateY(-600px)" }}>
             <Heading level={1} brand="dark">
               Meet<br />Donald
@@ -43,8 +44,8 @@ export default () => (state, actions) => {
               transitionDelay: "200ms",
               margin: 0,
               cursor: "default",
-              fontSize: ds.pxTo(ds.get("typo.sizes.legend"), baseFontSize, "rem"),
-              lineHeight: ds.pxTo(ds.get("typo.sizes.legend") + 4, baseFontSize, "rem"),
+              fontSize: pxTo(ds.get("typo.sizes.legend"), baseFontSize, "rem"),
+              lineHeight: pxTo(ds.get("typo.sizes.legend") + 4, baseFontSize, "rem"),
             },
           })}
         >
@@ -147,9 +148,9 @@ export default () => (state, actions) => {
         <div
           class={cxs({
             color: ds.get("colors.texts.navigation"),
-            marginBottom: ds.pxTo(10, baseFontSize, "rem"),
+            marginBottom: pxTo(10, baseFontSize, "rem"),
             "@media (min-height: 899px)": {
-              marginBottom: ds.pxTo(65, baseFontSize, "rem"),
+              marginBottom: pxTo(65, baseFontSize, "rem"),
             },
           })}
         >

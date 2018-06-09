@@ -112,7 +112,7 @@ process.env.NODE_ENV === 'production'
 
 module.exports = {
   entry: {
-    vendors: ["hyperapp", "@hyperapp/router"],
+    vendors: ["hyperapp", "@hyperapp/router", "@hyperapp/transitions", "animejs"],
     client: "./src/index.js",
   },
   output: {

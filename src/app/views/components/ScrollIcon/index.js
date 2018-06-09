@@ -1,6 +1,7 @@
 import { h } from "hyperapp"
 import cxs from "cxs"
 import { ds } from "assets/styles/theme"
+import { pxTo } from "design-system-utils"
 import { Link } from "@hyperapp/router"
 
 const baseFontSize = ds.get("typo.sizes.base")
@@ -10,8 +11,8 @@ export default (props) => {
   return (
     <div
       class={cxs({
-        width: ds.pxTo(40, baseFontSize, "rem"),
-        height: ds.pxTo(40, baseFontSize, "rem"),
+        width: pxTo(40, baseFontSize, "rem"),
+        height: pxTo(40, baseFontSize, "rem"),
         margin: "auto",
       })}
     >
