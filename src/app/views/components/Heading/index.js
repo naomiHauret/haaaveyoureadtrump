@@ -12,12 +12,16 @@ export default (props, children) => {
         <h1
           class={cxs({
             color: ds.get(`colors.texts.headings[${brand}]`),
-            fontSize: ds.pxTo(ds.get("typo.sizes.headings.h1"), baseFontSize, "rem"),
+            fontSize: ds.pxTo(40, baseFontSize, "rem"),
             fontWeight: ds.get("typo.fontWeight.black"),
             fontFamily: ds.get("typo.fontFamily.headings.h1"),
             lineHeight: ds.pxTo(ds.get("typo.sizes.lineHeight.h1"), baseFontSize, "rem"),
             textTransform: "uppercase",
             margin,
+
+            "@media (min-height: 899px)": {
+              fontSize: ds.pxTo(ds.get("typo.sizes.headings.h1"), baseFontSize, "rem"),
+            },
           })}
         >
           {children}

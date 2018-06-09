@@ -273,14 +273,29 @@ export default (props) => {
         transform:
           isSelectSliceView === true
             ? "scale(0.4)"
-            : isCustom === true &&
-              currentBurger.length > 10 &&
-              currentBurger.length < slicesNames.length &&
-              currentBurger.length > 7
-              ? "translateY(-10px) scale(1)"
-              : isCustom === true && currentBurger.length < slicesNames.length && currentBurger.length <= 6
-                ? "translateY(5%) scale(1)"
-                : "scale(1)",
+            : isCustom === true && currentBurger.length > 10 && currentBurger.length < slicesNames.length
+              ? "translateY(-45px) scale(1)"
+              : isCustom === true &&
+                currentBurger.length <= 10 &&
+                currentBurger.length < slicesNames.length &&
+                currentBurger.length > 7
+                ? "translateY(-55px) scale(1)"
+                : isCustom === true && currentBurger.length < slicesNames.length && currentBurger.length <= 6
+                  ? "translateY(5%) scale(1)"
+                  : "scale(1)",
+        "@media (min-height: 899px)": {
+          transform:
+            isSelectSliceView === true
+              ? "scale(0.4)"
+              : isCustom === true &&
+                currentBurger.length > 10 &&
+                currentBurger.length < slicesNames.length &&
+                currentBurger.length > 7
+                ? "translateY(-10px) scale(1)"
+                : isCustom === true && currentBurger.length < slicesNames.length && currentBurger.length <= 6
+                  ? "translateY(5%) scale(1)"
+                  : "scale(1)",
+        },
         filter: isSelectSliceView === true ? "grayscale(1)" : "grayscale(0)",
         transition: "all 550ms ease-in-out",
         ":hover": {
@@ -290,15 +305,31 @@ export default (props) => {
           },
           "> div": {
             animationName: isCustom === true ? "floatBurgerSlice" : "",
+            ":first-child": {
+              margin: isCustom === true && slicesNames.length === currentBurger.length ? "-130px 0 -50px 0" : 0,
+              "@media (min-height: 899px)": {
+                margin: 0,
+              },
+            },
             ":not(:first-child)": {
               paddingTop:
                 currentBurger.length === slicesNames.length && isCustom === false
-                  ? 0
-                  : isCustom === true
-                    ? "30px"
+                  ? "25px !important"
+                  : isCustom === true && currentBurger.length < slicesNames.length
+                    ? "25px"
                     : isSelectSliceView === true
                       ? "55px"
-                      : "45px",
+                      : "30px",
+              "@media (min-height: 899px)": {
+                paddingTop:
+                  currentBurger.length === slicesNames.length && isCustom === false
+                    ? 0
+                    : isCustom === true
+                      ? "30px"
+                      : isSelectSliceView === true
+                        ? "55px"
+                        : "45px",
+              },
             },
             "> img": {
               opacity: isCustom === true ? 1 : 0.5,
@@ -325,8 +356,16 @@ export default (props) => {
               isSelectSliceView === true
                 ? "50px !important"
                 : isCustom === true && currentBurger.length < slicesNames.length
-                  ? "35px"
+                  ? "25px"
                   : 0,
+            "@media (min-height: 899px)": {
+              paddingTop:
+                isSelectSliceView === true
+                  ? "50px !important"
+                  : isCustom === true && currentBurger.length < slicesNames.length
+                    ? "35px"
+                    : 0,
+            },
           },
           ":nth-child(2)": {
             paddingTop: "0",

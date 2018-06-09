@@ -26,13 +26,7 @@ export default () => (state, actions) => {
         })}
       >
         <div class={cxs({ alignSelf: "flex-start", marginBottom: ds.pxTo(35, baseFontSize, "rem") })}>
-          <Enter
-            time={650}
-            easing="ease-in-out"
-            css={{
-              transform: "translateY(-600px)",
-            }}
-          >
+          <Enter time={650} easing="ease-in-out" css={{ transform: "translateY(-600px)" }}>
             <Heading level={1} brand="dark">
               Meet<br />Donald
             </Heading>
@@ -60,7 +54,7 @@ export default () => (state, actions) => {
               right: 0,
               opacity: state.aboutVisibleParagraph === "eyes" ? 1 : 0,
               "@media (min-width: 768px)": {
-                transform: "translate(125%, 125%)",
+                transform: "translate(125%, -105%)",
               },
               "@media (min-width: 1199px)": {
                 transform:
@@ -79,7 +73,7 @@ export default () => (state, actions) => {
               right: 0,
               opacity: state.aboutVisibleParagraph === "tie" ? 1 : 0,
               "@media (min-width: 768px)": {
-                transform: "translate(172%, -25%)",
+                transform: "translate(90%, -25%)",
               },
               "@media (min-width: 1199px)": {
                 transform:
@@ -132,11 +126,7 @@ export default () => (state, actions) => {
             Now at the head of a 3.1<br /> billion dollars fortune,<br /> Donald is the 248th richest<br /> man in the
             US, and the<br /> 766th on the world ranking
           </p>
-          <div
-            class={cxs({
-              perspective: "1000px",
-            })}
-          >
+          <div class={cxs({ perspective: "1000px" })}>
             <Enter
               time={450}
               delay={385}
@@ -153,16 +143,16 @@ export default () => (state, actions) => {
           </div>
         </div>
       </div>
-      <Enter
-        time={450}
-        delay={455}
-        easing="ease-in-out"
-        css={{
-          transform: "translateY(-50px)",
-          opacity: 0,
-        }}
-      >
-        <div class={cxs({ color: ds.get("colors.texts.navigation"), marginBottom: ds.pxTo(65, baseFontSize, "rem") })}>
+      <Enter time={450} delay={455} easing="ease-in-out" css={{ transform: "translateY(-50px)", opacity: 0 }}>
+        <div
+          class={cxs({
+            color: ds.get("colors.texts.navigation"),
+            marginBottom: ds.pxTo(10, baseFontSize, "rem"),
+            "@media (min-height: 899px)": {
+              marginBottom: ds.pxTo(65, baseFontSize, "rem"),
+            },
+          })}
+        >
           <ScrollIcon next={donaldMenuPageUrl} />
         </div>
       </Enter>

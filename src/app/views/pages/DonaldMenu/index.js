@@ -6,7 +6,7 @@ import cxs from "cxs"
 import { ds } from "assets/styles/theme"
 import { donaldMenuMetaTitle } from "app/routes"
 import Burger from "app/views/components/Burger"
-import data from "assets/data/data.csv"
+import data from "assets/data/dataset.csv"
 import anime from "animejs"
 import { Enter } from "@hyperapp/transitions"
 const baseFontSize = ds.get("typo.sizes.base")
