@@ -6,7 +6,6 @@ import cxs from "cxs"
 import Navigation from "app/views/components/Navigation"
 import Heading from "app/views/components/Heading"
 import { homePageUrl, aboutPageUrl, donaldMenuPageUrl } from "app/routes"
-import debounce from "lodash.debounce"
 
 const baseFontSize = ds.get("typo.sizes.base")
 
@@ -71,30 +70,6 @@ export default (props, children) => {
             }
           }
         }}
-        onwheel={debounce((e) => {
-          e.preventDefault()
-          if (state.showGraph === false) {
-            const direction = e.deltaY
-            const aboutLink = document.querySelector(`nav a[href='${aboutPageUrl}']`)
-            const homeLink = document.querySelector(`nav a[href='${homePageUrl}']`)
-            const menuLink = document.querySelector(`nav a[href='${donaldMenuPageUrl}']`)
-            switch (state.location.pathname) {
-              case homePageUrl:
-                direction > 0 ? aboutLink.click() : menuLink.click()
-                break
-
-              case aboutPageUrl:
-                direction > 0 ? menuLink.click() : homeLink.click()
-                break
-              case donaldMenuPageUrl:
-                direction > 0 ? homeLink.click() : aboutLink.click()
-                break
-
-              default:
-                break
-            }
-          }
-        }, 150)}
         class={cxs({
           flexGrow: 1,
           display: "flex",

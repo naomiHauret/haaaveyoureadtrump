@@ -169,10 +169,14 @@ export default () => (state, actions) => {
                 top: "50%",
                 transform: "translateY(-50%)",
                 width: state.showGraph === false ? "auto" : "inherit",
-                marginTop: state.showGraph === false ? 0 : pxTo(80, baseFontSize, "rem"),
+                marginTop: state.showGraph === false ? 0 : pxTo(15, baseFontSize, "rem"),
                 zIndex: 2,
                 ":hover": {
                   transform: "translateY(calc(-50 % + 100px))",
+                },
+
+                "@media (min-height: 899px)": {
+                  marginTop: state.showGraph === false ? 0 : pxTo(80, baseFontSize, "rem"),
                 },
               })}
             >

@@ -60,10 +60,10 @@
     "@hyperapp/transitions": "^1.0.2",
     "animejs": "^2.2.0",
     "chart.js": "^2.7.2",
+    "circletype": "^2.3.0",
     "cxs": "^6.2.0",
     "design-system-utils": "^1.0.1",
     "hyperapp": "^1.2.6",
-    "lodash.debounce": "^4.0.8",
     "lottie-web": "^5.1.16"
   },
   "browserslist": [

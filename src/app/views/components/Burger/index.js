@@ -313,7 +313,7 @@ export default (props) => {
             },
             ":not(:first-child)": {
               paddingTop:
-                currentBurger.length === slicesNames.length && isCustom === false
+                currentBurger.length === slicesNames.length && isCustom === false && isSelectSliceView === false
                   ? "25px !important"
                   : isCustom === true && currentBurger.length < slicesNames.length
                     ? "25px"
@@ -322,7 +322,7 @@ export default (props) => {
                       : "30px",
               "@media (min-height: 899px)": {
                 paddingTop:
-                  currentBurger.length === slicesNames.length && isCustom === false
+                  currentBurger.length === slicesNames.length && isCustom === false && isSelectSliceView === false
                     ? 0
                     : isCustom === true
                       ? "30px"

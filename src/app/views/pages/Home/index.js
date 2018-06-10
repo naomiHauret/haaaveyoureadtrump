@@ -6,6 +6,7 @@ import Page from "app/views/pages/Page"
 import Heading from "app/views/components/Heading"
 import ScrollIcon from "app/views/components/ScrollIcon"
 import { Enter, Exit } from "@hyperapp/transitions"
+import CircleType from "circletype"
 import anime from "animejs"
 
 import { homeMetaTitle, aboutPageUrl } from "app/routes"
@@ -206,6 +207,27 @@ export default () => (state, actions) => {
             })
           }
         >
+          <div
+            class={cxs({ fontSize: pxTo(14, baseFontSize, "rem") })}
+            oncreate={(e) =>
+              anime({
+                targets: e,
+                translateY: {
+                  value: [pxTo(20, baseFontSize, "rem"), pxTo(10, baseFontSize, "rem")],
+                  delay: 7850,
+                  duration: 5550,
+                },
+                opacity: {
+                  value: [1, 0],
+                  delay: 18250,
+                  easing: "easeInOutSine",
+                  duration: 850,
+                },
+              })
+            }
+          >
+            <div oncreate={(e) => new CircleType(e).radius(90)}>Use arrows to navigate</div>
+          </div>
           <ScrollIcon next={aboutPageUrl} />
         </div>
       </div>
